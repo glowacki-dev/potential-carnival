@@ -5,6 +5,7 @@ import store from './lib/redux';
 
 import ImagesList from './components/ImagesList';
 import BottomAppBar from './components/BottomAppBar';
+import Progress from './components/Progress';
 
 class App extends Component {
   render() {
@@ -12,7 +13,7 @@ class App extends Component {
       <Provider store={store}>
         <CssBaseline />
         <ImagesList />
-        <BottomAppBar />
+        <BottomAppBar content={<Progress />} />
       </Provider>
     );
   }

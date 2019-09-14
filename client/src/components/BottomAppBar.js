@@ -3,9 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { connect } from 'react-redux';
 
-import Progress from './Progress';
+import { PureProgress } from './Progress';
 
 const useStyles = makeStyles({
   appBar: {
@@ -14,28 +13,22 @@ const useStyles = makeStyles({
   }
 });
 
-export function PureBottomAppBar({ progress }) {
+function BottomAppBar({ content }) {
   const classes = useStyles();
 
   return (
     <AppBar position="fixed" color="primary" className={classes.appBar}>
-      <Toolbar>
-        <Progress progress={progress} />
-      </Toolbar>
+      <Toolbar>{content}</Toolbar>
     </AppBar>
   );
 }
 
-PureBottomAppBar.propTypes = {
-  progress: PropTypes.arrayOf(Progress.propTypes.progress).isRequired
+BottomAppBar.propTypes = {
+  content: PropTypes.element.isRequired
 };
 
-export default connect(
-  ({ images }) => ({
-    progress: {
-      count: images.filter(image => image.isSelected).length,
-      max: images.length
-    }
-  }),
-  () => ({})
-)(PureBottomAppBar);
+BottomAppBar.defaultProps = {
+  content: <PureProgress progress={{ count: 3, max: 10 }} />
+};
+
+export default BottomAppBar;
