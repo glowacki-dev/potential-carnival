@@ -1,5 +1,44 @@
-from typing import List
 import requests
+
+
+class Passenger:
+    """
+    {
+    "idPax": 1,
+    "title": "MR",
+    "name": " John ", "surname": "Smith", "typePax": "ADT",
+    "sex": "M",
+    "email": "j.smith @lot.pl"
+    }
+    """
+
+    def __init__(
+        self,
+        name: str,
+        surename: str,
+        sex: str,
+        pax_type: str = "ADT",
+        email: str = "test@test.com",
+    ):
+        self.name = name
+        self.surename = surename
+        self.pax_type = pax_type
+        self.email = email
+        self.pac_id = 1
+        self.sex = sex
+        self.title = "MR" if sex == "M" else "MS"
+
+    @property
+    def json(self):
+        return {
+            "idPax": self.pac_id,
+            "title": self.title,
+            "name": self.name,
+            "surname": self.surename,
+            "typePax": self.pax_type,
+            "sex": self.sex,
+            "email": self.email,
+        }
 
 
 class Lot:
@@ -48,7 +87,7 @@ class Lot:
         response = requests.post(url, headers=self.headers, json=body)
         if response.status_code != 200:
             raise Exception(f"Request to {url} failed: \n {response.json()}")
-        return response.json().get('data')
+        return response.json().get("data")
 
     def get_availability(
         self,
@@ -82,10 +121,10 @@ class Lot:
         url = "https://api.lot.com/flights-dev/v2/booking/availability"
         return self.make_call(url, body)
 
-    def get_fare(self, listIdOutbound: List[int], idInbound: int = None):
-        url = "https://api.lot.com/flights-dev/v2/booking/fare"
-        body = {"params": {"listIdOutbound": listIdOutbound, "idInbound": idInbound}}
-        return self.make_call(url, body)
+    # def get_fare(self, listIdOutbound: List[int], idInbound: int = None):
+    #     url = "https://api.lot.com/flights-dev/v2/booking/fare"
+    #     body = {"params": {"listIdOutbound": [1], "idInbound": 1, "idOffer": [1]}}
+    #     return self.make_call(url, body)
 
     def get_airport(self):
         url = "https://api.lot.com/flights-dev/v2/airports/get"

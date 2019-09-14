@@ -4,7 +4,7 @@ from api.tags import *
 db = [
     {
         "code": "MAD",
-        "pf": "1,2",
+        "pf": 1.2,
         "name": "Madrid",
         "country": "Spain",
         "lat": "40.471926",
@@ -28,7 +28,7 @@ db = [
     },
     {
         "code": "ZAD",
-        "pf": "1,4",
+        "pf": 1.4,
         "name": "Zadar",
         "country": "Croatia",
         "lat": "44.108299",
@@ -52,7 +52,7 @@ db = [
     },
     {
         "code": "GVA",
-        "pf": "1,6",
+        "pf": 1.6,
         "name": "Geneva",
         "country": "Switzerland",
         "lat": "46.23809814453125",
@@ -76,7 +76,7 @@ db = [
     },
     {
         "code": "ARN",
-        "pf": "1,6",
+        "pf": 1.6,
         "name": "Stockholm",
         "country": "Sweden",
         "lat": "59.651901245116996",
@@ -100,7 +100,7 @@ db = [
     },
     {
         "code": "SOF",
-        "pf": "0,9",
+        "pf": 0.9,
         "name": "Sofia",
         "country": "Bulgaria",
         "lat": "42.696693420410156",
@@ -124,7 +124,7 @@ db = [
     },
     {
         "code": "PEK",
-        "pf": "1",
+        "pf": 1,
         "name": "Beijing",
         "country": "China",
         "lat": "40.0801010131836",
@@ -148,7 +148,7 @@ db = [
     },
     {
         "code": "KUL",
-        "pf": "1,1",
+        "pf": 1.1,
         "name": "Kuala Lumpur",
         "country": "Malaysia",
         "lat": "2.7455799579619997",
@@ -172,7 +172,7 @@ db = [
     },
     {
         "code": "LWO",
-        "pf": "0,8",
+        "pf": 0.8,
         "name": "Lvov",
         "country": "Ukraine",
         "lat": "49.8125",
@@ -196,7 +196,7 @@ db = [
     },
     {
         "code": "DEL",
-        "pf": "0,9",
+        "pf": 0.9,
         "name": "Delhi",
         "country": "India",
         "lat": "28.5665",
@@ -220,7 +220,7 @@ db = [
     },
     {
         "code": "LAX",
-        "pf": "1,5",
+        "pf": 1.5,
         "name": "Los Angeles",
         "country": "United States",
         "lat": "33.94250107",
