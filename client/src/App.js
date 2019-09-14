@@ -3,17 +3,19 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Provider } from 'react-redux';
 import store from './lib/redux';
 
-import ImagesList from './components/ImagesList';
-import BottomAppBar from './components/BottomAppBar';
-import Progress from './components/Progress';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { ImagesView } from './views/Images';
+import { SummaryView } from './views/Summary';
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <CssBaseline />
-        <ImagesList />
-        <BottomAppBar content={<Progress />} />
+        <Router>
+          <Route path="/" exact component={ImagesView} />
+          <Route path="/summary/" component={SummaryView} />
+        </Router>
       </Provider>
     );
   }
