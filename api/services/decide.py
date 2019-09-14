@@ -13,7 +13,7 @@ def get_tags(image_id: str, as_list: bool = False) -> set:
 
 
 def get_most_common(cntr: Counter, rank: int = 1) -> str:
-    return cntr.most_common(1)[-1][0]
+    return cntr.most_common(rank)[-1][0]
 
 
 def select_best_destination(choices: List[str]) -> dict:
