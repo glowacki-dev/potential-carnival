@@ -54,7 +54,6 @@ class Lot:
         departureDate: str,
         adults: int,
         tripType: str,
-        fareType: list = "ALL",
         cabinClass: str = "E",
         returnDate: str = None,
     ) -> dict:
@@ -70,8 +69,7 @@ class Lot:
             destination=[destination],
             departureDate=[departureDate],
             cabinClass=cabinClass,
-            adults=adults,
-            fareType=[fareType],
+            adt=adults,
             tripType=tripType,
         )
         if returnDate:
