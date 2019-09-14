@@ -43,7 +43,7 @@ function ImageCard({ image: { id, isSelected, url }, onClickCard }) {
     <Card
       className={classes.card}
       raised={true}
-      style={{ color: isSelected ? red[200] : grey[200] }}
+      style={{ color: isSelected ? red[400] : grey[400] }}
       onClick={() => onClickCard(id)}
     >
       <CardActionArea centerRipple={true}>

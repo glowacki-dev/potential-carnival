@@ -4,20 +4,20 @@ import { createStore } from 'redux';
 
 // The actions are the "names" of the changes that can happen to the store
 export const actions = {
-  LIKE_IMAGE: 'LIKE_IMAGE'
+  CLICK_IMAGE: 'CLICK_IMAGE'
 };
 
 // The action creators bundle actions with the data required to execute them
-export const likeImage = id => ({ type: actions.LIKE_IMAGE, id });
+export const clickImage = id => ({ type: actions.CLICK_IMAGE, id });
 
 // All our reducers simply change the state of a single task.
-function imageStateReducer(isImageSelected) {
+function imageStateReducer() {
   return (state, action) => {
     return {
       ...state,
       images: state.images.map(image =>
         image.id === action.id
-          ? { ...image, isSelected: isImageSelected }
+          ? { ...image, isSelected: !image.isSelected }
           : image
       )
     };
@@ -27,8 +27,8 @@ function imageStateReducer(isImageSelected) {
 // The reducer describes how the contents of the store change for each action
 export const reducer = (state, action) => {
   switch (action.type) {
-    case actions.LIKE_IMAGE:
-      return imageStateReducer(true)(state, action);
+    case actions.CLICK_IMAGE:
+      return imageStateReducer()(state, action);
     default:
       return state;
   }
