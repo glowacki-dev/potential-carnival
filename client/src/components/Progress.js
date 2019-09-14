@@ -39,8 +39,8 @@ PureProgress.propTypes = {
 export default connect(
   ({ images }) => ({
     progress: {
-      count: images.filter(image => image.isSelected).length,
-      max: images.length
+      count: images.images.filter(image => image.isSelected).length,
+      max: images.images.length
     }
   }),
   () => ({})
