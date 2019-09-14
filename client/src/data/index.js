@@ -8,6 +8,7 @@ let rootReducer = combineReducers({
   session: session_reducer,
   images: images_reducer
 });
+
 export default createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))

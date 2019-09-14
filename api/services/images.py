@@ -5,7 +5,7 @@ from api.image_map import IMAGE_MAP
 
 
 class ImagesService:
-    IMAGES_COUNT = 3
+    IMAGES_COUNT = 10
 
     def __init__(self, session):
         self.session = session
@@ -24,11 +24,9 @@ class ImagesService:
         images = set(IMAGE_MAP.keys())
 
         images_left = list(images - viewed)
+        random.shuffle(images_left)
 
-        try:
-            selected_images = random.choices(images_left, k=self.IMAGES_COUNT)
-        except IndexError:
-            selected_images = images_left
+        selected_images = images_left[:self.IMAGES_COUNT]
 
         self.session.update({
             'viewed': list(viewed) + selected_images
@@ -41,4 +39,3 @@ class ImagesService:
             'url': f'{settings["base_url"]}/static/img/{img_id}',
             'alt': img_id
         }
-

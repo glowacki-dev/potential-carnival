@@ -1,13 +1,8 @@
+import { BaseClient } from '../client';
+
 const fetch = require('node-fetch');
 
-export class sessionClient {
-  _url() {
-    if (window.location.href.includes('localhost')) {
-      return 'http://localhost:5000/';
-    }
-    return 'https://potential-carnival.appspot.com/';
-  }
-
+export class sessionClient extends BaseClient {
   obtainSessionID = async () => {
     let session = await fetch(this._url() + 'sessions', { method: 'POST' });
 

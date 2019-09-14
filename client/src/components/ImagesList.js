@@ -1,49 +1,51 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { Component } from 'react';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import ImageCard from './ImageCard';
-import { clickImage } from '../data/Images/actions';
+import { clickImage, fetchImages } from '../data/Images/actions';
+import store from './../data';
 
-const useStyles = makeStyles();
-
-export function PureImagesList({ images, onClickCard }) {
-  const classes = useStyles();
-
-  const events = {
-    onClickCard
-  };
-
-  if (images.length === 0) {
-    return <div className="list-items">empty</div>;
+export class PureImagesList extends Component {
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (
+      !this.props.isImageFetching &&
+      this.props.sessionID &&
+      this.props.images.length === 0
+    ) {
+      store.dispatch(fetchImages(this.props.sessionID));
+    }
   }
 
-  return (
-    <GridList cellHeight={440} cols={1}>
-      {images.map(image => (
-        <GridListTile key={image.id} cols={1} rows={1}>
-          <ImageCard key={image.id} image={image} {...events} />
-        </GridListTile>
-      ))}
-    </GridList>
-  );
+  onClickCard = imgID => {
+    store.dispatch(clickImage(this.props.sessionID, imgID));
+  };
+
+  render() {
+    const events = { onClickCard: this.onClickCard };
+
+    if (this.props.images.length === 0) {
+      return <div className="list-items">empty</div>;
+    }
+
+    return (
+      <GridList cellHeight={440} cols={1}>
+        {this.props.images.map(image => (
+          <GridListTile key={image.id} cols={1} rows={1}>
+            <ImageCard key={image.id} image={image} {...events} />
+          </GridListTile>
+        ))}
+      </GridList>
+    );
+  }
 }
 
-PureImagesList.propTypes = {
-  images: PropTypes.arrayOf(ImageCard.propTypes.card).isRequired,
-  onClickCard: PropTypes.func
-};
-
-export default connect(
-  ({ images }) => {
-    return {
-      images: images.images
-    };
-  },
-  dispatch => ({
-    onClickCard: id => dispatch(clickImage(id))
-  })
-)(PureImagesList);
+export default connect(({ images, session }) => {
+  return {
+    isImageFetching: images.isImageFetching,
+    isImageFinished: images.isImageFinished,
+    images: images.images,
+    sessionID: session.sessionID
+  };
+})(PureImagesList);
