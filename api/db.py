@@ -57,7 +57,7 @@ db = [
         "country": "Switzerland",
         "lat": "46.23809814453125",
         "long": "6.108950138092041",
-        "tags": {CULTURE, ARCHITECTURE, CITY, HOTEL, LAKE, LANDSCAPE, COLD, SPORT, SKI},
+        "tags": {CULTURE, CITY, HOTEL, LAKE, LANDSCAPE, COLD, SPORT, SKI},
         "temp": [
             3.7,
             5.9,
@@ -105,7 +105,7 @@ db = [
         "country": "Bulgaria",
         "lat": "42.696693420410156",
         "long": "23.411436080932614",
-        "tags": {HOTEL, CULTURE, ARCHITECTURE},
+        "tags": {HOTEL, CULTURE, ARCHITECTURE, SEA},
         "temp": [
             2.2,
             4.9,
@@ -153,7 +153,7 @@ db = [
         "country": "Malaysia",
         "lat": "2.7455799579619997",
         "long": "101.70999908446998",
-        "tags": {FOOD, HOTEL, EXPERIENCE, CULTURE, SEA, LANDSCAPE, HOT, ARCHITECTURE, SPORT},
+        "tags": {FOOD, HOTEL, CULTURE, SEA, LANDSCAPE, HOT, ARCHITECTURE, SPORT},
         "temp": [
             32.1,
             32.9,
