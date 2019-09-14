@@ -6,3 +6,6 @@ handlers:
 
 - url: /.*
   script: auto
+
+env_variables:
+  POTENTIAL_CARNIVAL_BASE_URL: 'https://potential-carnival.appspot.com'
