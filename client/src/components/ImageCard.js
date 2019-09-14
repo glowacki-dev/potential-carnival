@@ -36,7 +36,7 @@ const useStyles = makeStyles({
   }
 });
 
-function ImageCard({ image: { id, isSelected, url }, onClickCard }) {
+function ImageCard({ image: { id, isSelected, url, alt }, onClickCard }) {
   const classes = useStyles();
 
   return (
@@ -47,7 +47,7 @@ function ImageCard({ image: { id, isSelected, url }, onClickCard }) {
       onClick={() => onClickCard(id)}
     >
       <CardActionArea centerRipple={true}>
-        <CardMedia className={classes.media} image={url} />
+        <CardMedia className={classes.media} image={url} alt={alt} />
         {isSelected ? (
           <div className={classes.overlay}>
             <Heart
@@ -72,9 +72,14 @@ ImageCard.propTypes = {
   card: PropTypes.shape({
     id: PropTypes.string.isRequired,
     isSelected: PropTypes.bool.isRequired,
-    url: PropTypes.string.isRequired
+    url: PropTypes.string.isRequired,
+    alt: PropTypes.string
   }),
   onClickCard: PropTypes.func
+};
+
+ImageCard.defaultProps = {
+  isSelected: false
 };
 
 export default ImageCard;

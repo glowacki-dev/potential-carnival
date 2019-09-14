@@ -22,7 +22,7 @@ export function PureImagesList({ images, onClickCard }) {
   }
 
   return (
-    <GridList cellHeight={520} cols={1}>
+    <GridList cellHeight={440} cols={1}>
       {images.map(image => (
         <GridListTile key={image.id} cols={1} rows={1}>
           <ImageCard key={image.id} image={image} {...events} />

@@ -37,10 +37,10 @@ export const reducer = (state, action) => {
 // The initial state of our store when the app loads.
 // Usually you would fetch this from a server
 const defaultImages = [
-  { id: '1', url: 'https://placeimg.com/640/480/any', isSelected: false },
-  { id: '2', url: 'https://placeimg.com/640/480/any', isSelected: false },
-  { id: '3', url: 'https://placeimg.com/640/480/any', isSelected: false },
-  { id: '4', url: 'https://placeimg.com/640/480/any', isSelected: false }
+  { id: '1', url: 'https://placeimg.com/640/480/any', alt: 'cat' },
+  { id: '2', url: 'https://placeimg.com/640/480/any', alt: 'dog' },
+  { id: '3', url: 'https://placeimg.com/640/480/any', alt: 'dessert' },
+  { id: '4', url: 'https://placeimg.com/640/480/any', alt: 'desert' }
 ];
 
 // We export the constructed redux store
