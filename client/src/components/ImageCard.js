@@ -2,12 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
+
+import Heart from './Heart';
 
 const useStyles = makeStyles({
   card: {
@@ -23,12 +21,20 @@ const useStyles = makeStyles({
     left: 0,
     bottom: 0,
     right: 0,
-    backgroundColor: 'rgba(0,255,0,0.3)'
+    backgroundColor: 'transparent',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  heart: {
+    width: 100,
+    height: 100,
+    opacity: 0.2
   }
 });
 
 export default function ImageCard({
-  image: { id, title, state },
+  image: { id, isSelected, url },
   onClickCard
 }) {
   const classes = useStyles();
@@ -36,12 +42,22 @@ export default function ImageCard({
   return (
     <Card className={classes.card} onClick={() => onClickCard(id)}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="https://placeimg.com/640/480/any"
-          title="Contemplative Reptile"
-        />
-        <div className={classes.overlay} hidden={state != 'CARD_LIKED'}></div>
+        <CardMedia className={classes.media} image={url} />
+        {isSelected ? (
+          <div className={classes.overlay}>
+            <Heart
+              className={classes.heart}
+              heart={{ isLoved: isSelected }}
+            ></Heart>
+          </div>
+        ) : (
+          <div className={classes.overlay}>
+            <Heart
+              className={classes.heart}
+              heart={{ isLoved: isSelected }}
+            ></Heart>
+          </div>
+        )}
       </CardActionArea>
     </Card>
   );
@@ -50,8 +66,8 @@ export default function ImageCard({
 ImageCard.propTypes = {
   card: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    state: PropTypes.string.isRequired
+    isSelected: PropTypes.bool.isRequired,
+    url: PropTypes.string.isRequired
   }),
-  onClickTask: PropTypes.func
+  onClickCard: PropTypes.func
 };

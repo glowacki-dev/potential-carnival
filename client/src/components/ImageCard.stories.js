@@ -6,9 +6,8 @@ import ImageCard from './ImageCard';
 
 export const image = {
   id: '1',
-  title: 'Test Task',
-  state: 'CARD_NEUTRAL',
-  updatedAt: new Date(2018, 0, 1, 9, 0)
+  isSelected: false,
+  url: 'https://placeimg.com/640/480/any'
 };
 
 export const actions = {
@@ -18,6 +17,6 @@ export const actions = {
 storiesOf('ImageCard', module)
   .addDecorator(card => <div style={{ padding: '20px' }}>{card()}</div>)
   .add('default', () => <ImageCard image={image} {...actions} />)
-  .add('liked', () => (
-    <ImageCard image={{ ...image, state: 'CARD_LIKED' }} {...actions} />
+  .add('selected', () => (
+    <ImageCard image={{ ...image, isSelected: true }} {...actions} />
   ));

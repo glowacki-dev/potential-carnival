@@ -2,9 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 import ImageCard from './ImageCard';
 
@@ -35,7 +32,7 @@ function ImagesList({ loading, images, onClickCard }) {
   }
 
   return (
-    <GridList cellHeight={450} cols={1}>
+    <GridList cellHeight={520} cols={1}>
       {images.map(image => (
         <GridListTile key={image.id} cols={1} rows={1}>
           <ImageCard key={image.id} image={image} {...events} />
