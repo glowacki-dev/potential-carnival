@@ -5,14 +5,13 @@ import red from '@material-ui/core/colors/red';
 
 const useStyles = makeStyles({
   heart: {
-    stroke: red[400],
     strokeWidth: '1px',
-    strokeOpacity: 0.7,
+    strokeOpacity: 0.5,
     position: 'relative',
     width: '100px',
     transitionProperty: 'fill',
     transitionDuration: '1s',
-    opacity: 0.8
+    fillOpacity: 0.7
   }
 });
 
@@ -23,7 +22,8 @@ export default function Heart({ heart: { isLoved } }) {
     <div>
       <svg
         className={classes.heart}
-        fill={isLoved ? red[400] : 'rgba(255, 255, 255, 0.25)'}
+        stroke={isLoved ? red[600] : 'rgba(255, 255, 255, 0.65)'}
+        fill={isLoved ? red[600] : 'rgba(255, 255, 255, 0.35)'}
         viewBox="-1 -1 34 32"
       >
         <path

@@ -20,6 +20,4 @@ storiesOf('ImagesList', module)
   .add('default', () => <ImagesList images={defatultImageCards} {...actions} />)
   .add('withLikedImages', () => (
     <ImagesList images={withLikedImages} {...actions} />
-  ))
-  .add('loading', () => <ImagesList loading images={[]} {...actions} />)
-  .add('empty', () => <ImagesList images={[]} {...actions} />);
+  ));
