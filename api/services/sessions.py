@@ -6,10 +6,13 @@ class SessionService:
         self.collection = firestore.Client().collection('sessions')
 
     def get_session(self, session_id):
-        session_doc = self.collection.document(session_id).get()
-        return session_doc.to_dict()
+        session_doc = self.collection.document(session_id)
+        return session_doc
 
-    def create_session(self):
+    def create_session(self) -> str:
+        """
+        :return: Session uuid
+        """
         result = self.collection.add({
             'choices': [],
             'viewed': [],

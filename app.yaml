@@ -1,0 +1,11 @@
+runtime: python37
+
+handlers:
+- url: /static
+  static_dir: api/static
+
+- url: /.*
+  script: auto
+
+env_variables:
+  POTENTIAL_CARNIVAL_BASE_URL: 'https://potential-carnival.appspot.com'
