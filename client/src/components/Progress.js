@@ -15,10 +15,11 @@ function Progress({ progress: { count, max } }) {
 
   return (
     <div className={classes.root}>
-      {max === 0 ? (
-        <LinearProgress />
+      {!max ? (
+        <LinearProgress color="secondary" />
       ) : (
         <LinearProgress
+          color="secondary"
           variant="determinate"
           value={Math.min((100 * count) / max, 100)}
         />
