@@ -4,9 +4,9 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { clickImage } from '../lib/redux';
 
 import ImageCard from './ImageCard';
+import { clickImage } from '../data/Images/actions';
 
 const useStyles = makeStyles();
 
@@ -38,9 +38,11 @@ PureImagesList.propTypes = {
 };
 
 export default connect(
-  ({ images }) => ({
-    images: images
-  }),
+  ({ images }) => {
+    return {
+      images: images.images
+    };
+  },
   dispatch => ({
     onClickCard: id => dispatch(clickImage(id))
   })

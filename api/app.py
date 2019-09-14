@@ -1,19 +1,22 @@
-from flask import Flask, escape, request, jsonify
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+
 
 from api.helpers.session import session_wrapper
 from api.services.sessions import SessionService
 from api.services.images import ImagesService
 
+
 app = Flask(__name__)
 app.services = {
     'session': SessionService(),
 }
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 @app.route('/')
 def hello():
-    name = request.args.get("name", "World")
-    return f'Hello, {escape(name)}!'
+    return f'Hello, World!'
 
 
 @app.route('/sessions', methods=['POST'])

@@ -1,0 +1,3 @@
+class ImagesClient {
+  fetchImages() {}
+}
