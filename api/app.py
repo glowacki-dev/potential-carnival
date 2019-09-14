@@ -3,6 +3,7 @@ from flask import Flask, escape, request, jsonify
 from api.helpers.session import session_wrapper
 from api.services.sessions import SessionService
 from api.services.images import ImagesService
+from api.services.decide import DecisionService
 
 app = Flask(__name__)
 app.services = {
@@ -48,3 +49,11 @@ def save_images():
     img_service.select_image(data['img_id'])
 
     return jsonify()
+
+
+@app.route('/decisions/', methods=['GET'])
+@session_wrapper()
+def get_images():
+    decision_service = DecisionService(request.session)
+    decision = decision_service.make_decision()
+    return jsonify({'result': decision})

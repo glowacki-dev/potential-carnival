@@ -23,7 +23,7 @@ def avg_price_factor(choices: List[str]) -> float:
     return sum(get_pf(ch) for ch in choices) / len(choices)
 
 
-def select_best_destination(choices: List[str]) -> dict:
+def select_best_destination(choices) -> dict:
     cntr = Counter(sum((get_tags(ch, as_list=True) for ch in choices), []))
 
     rank = 1
@@ -39,7 +39,10 @@ def select_best_destination(choices: List[str]) -> dict:
     return options[0]
 
 
-if __name__ == '__main__':
-    choices = ["sea2.jpg", "sea1.jpg"]
+class DecisionService:
+    def __init__(self, session):
+        self.session = session
 
-    print(select_best_destination(choices))
+    def make_decision(self):
+        choices = set(self.session.get().get('choices'))
+        return select_best_destination(choices)
