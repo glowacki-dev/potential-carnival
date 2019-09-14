@@ -14,7 +14,13 @@ def hello():
     return f'Hello, {escape(name)}!'
 
 
-@app.route('/create_session')
+@app.route('/sessions', methods=['POST'])
 def create_session():
     session_id = app.services['session'].create_session()
     return jsonify({'session_id': session_id})
+
+
+@app.route('/sessions/<session_id>')
+def get_session(session_id):
+    session = app.services['session'].get_session(session_id)
+    return jsonify(session)

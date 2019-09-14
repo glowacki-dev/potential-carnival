@@ -126,4 +126,5 @@ dmypy.json
 .pyre/
 
 .idea
+.DS_Store
 potential-carnival-0818d3adca58.json
