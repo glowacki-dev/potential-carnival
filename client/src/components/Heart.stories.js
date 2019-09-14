@@ -13,7 +13,11 @@ export const actions = {
 };
 
 storiesOf('Heart', module)
-  .addDecorator(card => <div style={{ padding: '20px' }}>{card()}</div>)
+  .addDecorator(card => (
+    <div style={{ padding: '20px', background: 'rgba(120, 160, 40, 0.5)' }}>
+      {card()}
+    </div>
+  ))
   .add('default', () => <Heart heart={heart} {...actions} />)
   .add('liked', () => (
     <Heart heart={{ ...heart, isLoved: true }} {...actions} />
