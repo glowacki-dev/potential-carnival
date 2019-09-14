@@ -7,6 +7,11 @@ class Lot:
     LOT_SECRET = "2przp49a52"
     token = None
 
+    @staticmethod
+    def check_error(response):
+        if response.status_code != 200:
+            raise Exception(f"Request failed: \n {response.json()}")
+
     @property
     def headers(self) -> dict:
         return {
@@ -23,8 +28,7 @@ class Lot:
             json=data,
             headers=headers,
         )
-        if response.status_code != 200:
-            raise Exception("Can auth LOT")
+        self.check_error(response)
         self.token = response.json().get("access_token")
         return response.json().get("access_token")
 
@@ -38,24 +42,23 @@ class Lot:
         response = requests.post(
             "https://api.lot.com/flights-dev/v2/auth/token/refresh", headers=headers
         )
-        if response.status_code != 200:
-            raise Exception("Can refresh token LOT")
+        self.check_error(response)
 
     def make_call(self, url: str, body: dict = None) -> dict:
         response = requests.post(url, headers=self.headers, json=body)
         if response.status_code != 200:
             raise Exception(f"Request to {url} failed: \n {response.json()}")
-        return response.json()
+        return response.json().get('data')
 
     def get_availability(
         self,
         origin: str,
         destination: str,
         departureDate: str,
+        returnDate: str,
         adults: int,
-        tripType: str,
+        tripType: str = "R",
         cabinClass: str = "E",
-        returnDate: str = None,
     ) -> dict:
         """
         date = ddmmYYYY
@@ -87,6 +90,5 @@ class Lot:
     def get_airport(self):
         url = "https://api.lot.com/flights-dev/v2/airports/get"
         response = requests.get(url, headers=self.headers)
-        if response.status_code != 200:
-            raise Exception(f"Request to {url} failed: \n {response.json()}")
+        self.check_error(response)
         return response.json()
