@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import './App.css';
+import { Provider } from 'react-redux';
+import store from './lib/redux';
 
-function App() {
-  return (
-    <React.Fragment>
-      <CssBaseline />
-      {}
-    </React.Fragment>
-  );
+import ImagesList from './components/ImagesList';
+
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <CssBaseline />
+        <ImagesList />
+      </Provider>
+    );
+  }
 }
 
 export default App;

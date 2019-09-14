@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Heart({ heart: { isLoved } }) {
+function Heart({ heart: { isLoved } }) {
   const classes = useStyles();
 
   return (
@@ -44,3 +44,5 @@ Heart.propTypes = {
     isLoved: PropTypes.bool.isRequired
   })
 };
+
+export default Heart;

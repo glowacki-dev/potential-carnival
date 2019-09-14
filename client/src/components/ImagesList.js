@@ -2,30 +2,20 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { likeImage } from '../lib/redux';
 
 import ImageCard from './ImageCard';
 
-const useStyles = makeStyles(theme => ({
-  titleBar: {
-    background:
-      'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
-      'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)'
-  },
-  icon: {
-    color: 'white'
-  }
-}));
+const useStyles = makeStyles();
 
-function ImagesList({ loading, images, onClickCard }) {
+export function PureImagesList({ images, onClickCard }) {
   const classes = useStyles();
 
   const events = {
     onClickCard
   };
-
-  if (loading) {
-    return <div className="list-items">loading</div>;
-  }
 
   if (images.length === 0) {
     return <div className="list-items">empty</div>;
@@ -42,4 +32,16 @@ function ImagesList({ loading, images, onClickCard }) {
   );
 }
 
-export default ImagesList;
+PureImagesList.propTypes = {
+  images: PropTypes.arrayOf(ImageCard.propTypes.card).isRequired,
+  onClickCard: PropTypes.func
+};
+
+export default connect(
+  ({ images }) => ({
+    images: images
+  }),
+  dispatch => ({
+    onClickCard: id => dispatch(likeImage(id))
+  })
+)(PureImagesList);

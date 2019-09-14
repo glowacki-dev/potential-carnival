@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Progress({ progress: { count, max } }) {
+function Progress({ progress: { count, max } }) {
   const classes = useStyles();
 
   return (
@@ -33,3 +33,5 @@ Progress.propTypes = {
     max: PropTypes.number.isRequired
   })
 };
+
+export default Progress;

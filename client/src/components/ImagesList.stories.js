@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import ImagesList from './ImagesList';
+import { PureImagesList } from './ImagesList';
 import { image, actions } from './ImageCard.stories';
 
 export const defatultImageCards = [
@@ -17,7 +17,9 @@ export const withLikedImages = [
 
 storiesOf('ImagesList', module)
   .addDecorator(list => <div style={{ padding: '20px' }}>{list()}</div>)
-  .add('default', () => <ImagesList images={defatultImageCards} {...actions} />)
+  .add('default', () => (
+    <PureImagesList images={defatultImageCards} {...actions} />
+  ))
   .add('withLikedImages', () => (
-    <ImagesList images={withLikedImages} {...actions} />
+    <PureImagesList images={withLikedImages} {...actions} />
   ));

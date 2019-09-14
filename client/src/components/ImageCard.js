@@ -12,7 +12,8 @@ import Heart from './Heart';
 const useStyles = makeStyles({
   card: {
     maxWidth: 400,
-    position: 'relative'
+    position: 'relative',
+    margin: 20
   },
   media: {
     height: 400
@@ -35,16 +36,14 @@ const useStyles = makeStyles({
   }
 });
 
-export default function ImageCard({
-  image: { id, isSelected, url },
-  onClickCard
-}) {
+function ImageCard({ image: { id, isSelected, url }, onClickCard }) {
   const classes = useStyles();
 
   return (
     <Card
       className={classes.card}
-      style={{ color: isSelected ? grey[200] : red[200] }}
+      raised={true}
+      style={{ color: isSelected ? red[200] : grey[200] }}
       onClick={() => onClickCard(id)}
     >
       <CardActionArea centerRipple={true}>
@@ -77,3 +76,5 @@ ImageCard.propTypes = {
   }),
   onClickCard: PropTypes.func
 };
+
+export default ImageCard;
