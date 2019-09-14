@@ -6,7 +6,7 @@ class Amadeus:
     def __init__(self):
         ama_api_key = os.environ.get("AMA_API_KEY")
         ama_api_secret = os.environ.get("AMA_API_SECRET")
-        self.amadeus = Client(client_id=ama_api_key, client_secret=ama_api_secret)
+        self.amadeus = Client(client_id=ama_api_key, client_secret=ama_api_secret, log_level='debug')
 
     def get_inspiration(self, origin: str):
         """
