@@ -4,7 +4,7 @@ from copy import deepcopy
 
 from api.image_map import IMAGE_MAP
 from api.db import db
-from api.tags import TAG_DESCRIPTION
+from api.tags import TAG_DESCRIPTION, ANC_DESCRIPTION
 
 
 def get_tags(image_id: str, as_list: bool = False) -> Union[set, list]:
@@ -39,8 +39,10 @@ def select_best_destination(choices):
 
     avg_pf = avg_price_factor(choices)
     options.sort(key=lambda x: abs(x['pf'] - avg_pf))
-    decision_tags = {TAG_DESCRIPTION.get(t) for t in selected_tags}
-    return options[0], decision_tags
+    best = options[0]
+    tags_description = {t: TAG_DESCRIPTION.get(t) for t in selected_tags}
+    adds_description = {a: ANC_DESCRIPTION.get(a) for a in best.get('adds', [])}
+    return best, tags_description, adds_description
 
 
 class DecisionService:
@@ -49,6 +51,9 @@ class DecisionService:
 
     def make_decision(self):
         choices = set(self.session.get().get('choices'))
-        best, tags = select_best_destination(choices)
+        if not choices:
+            return None
+
+        best, tags, adds = select_best_destination(choices)
         best['tags'] = list(best['tags'])
-        return best, tags
+        return {'result': best, 'tags': tags, 'adds': adds}
