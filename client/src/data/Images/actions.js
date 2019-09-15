@@ -18,7 +18,5 @@ export const fetchImages = sessionID => {
 export const clickImage = (sessionID, imgID) => {
   return async dispatch => {
     dispatch({ type: image_actions.IMAGE_CLICK, id: imgID });
-
-    await new ImagesClient().imageSelect(sessionID, imgID);
   };
 };

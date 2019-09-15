@@ -21,12 +21,12 @@ export class ImagesClient extends BaseClient {
     return images_data.images;
   };
 
-  imageSelect = async (sessionID, imgID) => {
+  imagesSelect = async (sessionID, imageIDS) => {
     await fetch(this._url() + 'images/', {
       method: 'POST',
       headers: this._getHeaders(sessionID),
       mode: 'cors',
-      body: JSON.stringify({ img_id: imgID })
+      body: JSON.stringify({ img_ids: imageIDS })
     });
   };
 }

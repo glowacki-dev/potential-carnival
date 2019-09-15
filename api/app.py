@@ -45,8 +45,8 @@ def get_images():
 @session_wrapper()
 def save_images():
     data = request.json
-    if not data.get('img_id'):
-        return jsonify({'error': 'Missing img_id parameter in body'}), 400
+    if not data.get('img_ids'):
+        return jsonify({'error': 'Missing img_ids parameter in body, expecting list'}), 400
 
     img_service = ImagesService(request.session)
     img_service.select_image(data['img_id'])

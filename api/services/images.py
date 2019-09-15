@@ -10,9 +10,9 @@ class ImagesService:
     def __init__(self, session):
         self.session = session
 
-    def select_image(self, img_id):
+    def select_images(self, image_ids):
         choices = set(self.session.get().get('choices'))
-        choices.add(img_id)
+        choices.union(set(image_ids))
 
         self.session.update({
             'choices': list(choices)
