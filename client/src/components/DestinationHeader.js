@@ -71,7 +71,7 @@ class PureDestinationHeader extends Component {
               <DestinationDetails decision={this.props.decision} />
             </Grid>
             <Grid item md={5}>
-              <div style={{ position: 'relative' }}>
+              <div style={{ position: 'relative', marginLeft: 30 }}>
                 <div
                   style={{
                     width: 300,
