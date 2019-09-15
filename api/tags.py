@@ -43,7 +43,7 @@ TAG_DESCRIPTION = {
 }
 
 ANC_DESCRIPTION = {
-    ANC_SEAT: "Make your flight even pleasant.",
+    ANC_SEAT: "Make your flight even more pleasant.",
     ANC_BAG: "Take more luggage.",
     ANC_SKI: "Remember to take your skis with you.",
     ANC_FOOD: "Improve your experience with delicious meal on board."
