@@ -9,12 +9,12 @@ from api.tags import TAG_DESCRIPTION, ANC_DESCRIPTION
 
 
 def get_tags(image_id: str, as_list: bool = False) -> Union[set, list]:
-    tags = IMAGE_MAP.get(image_id, {}).get('tags', [])
+    tags = IMAGE_MAP.get(image_id, {}).get("tags", [])
     return list(tags) if as_list else tags
 
 
 def get_pf(image_id: str) -> float:
-    return IMAGE_MAP.get(image_id, 1.0)['pf']
+    return IMAGE_MAP.get(image_id, 1.0)["pf"]
 
 
 def get_most_common(cntr: Counter, rank: int = 1) -> str:
@@ -34,15 +34,16 @@ def select_best_destination(choices):
     while last_len != len(options) > 1:
         last_len = len(options)
         tag = get_most_common(cntr, rank=rank)
-        options = [city for city in options if tag in city['tags']] or options
+        options = [city for city in options if tag in city["tags"]] or options
         selected_tags.add(tag)
         rank += 1
-
-    # avg_pf = avg_price_factor(choices)
-    # options.sort(key=lambda x: x['pf'] - avg_pf)
     best = choice(options)
-    tags_description = [{'name': t, 'description': TAG_DESCRIPTION.get(t)} for t in selected_tags]
-    adds_description = [{'name': a, 'description': ANC_DESCRIPTION.get(a)} for a in best.get('adds', [])]
+    tags_description = [
+        {"name": t, "description": TAG_DESCRIPTION.get(t)} for t in selected_tags
+    ]
+    adds_description = [
+        {"name": a, "description": ANC_DESCRIPTION.get(a)} for a in best.get("adds", [])
+    ]
     return best, tags_description, adds_description
 
 
@@ -51,13 +52,10 @@ class DecisionService:
         self.session = session
 
     def make_decision(self):
-        choices = set(self.session.get().get('choices'))
+        choices = set(self.session.get().get("choices"))
         if not choices:
             return None
 
         best, tags, adds = select_best_destination(choices)
-        best['tags'] = list(best['tags'])
-        # self.session.update({'best': best})
-        # self.session.update({'tags': tags})
-        # self.session.update({'adds': adds})
-        return {'result': best, 'tags': tags, 'adds': adds}
+        best["tags"] = list(best["tags"])
+        return {"result": best, "tags": tags, "adds": adds}

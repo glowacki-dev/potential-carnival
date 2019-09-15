@@ -41,12 +41,12 @@ TAG_DESCRIPTION = {
     TENT: "Take your tent!",
     SKI: "Ski adventure.",
     SPORT: "Sport the unexpected.",
-    UNIQUE: "See something different"
+    UNIQUE: "See something different",
 }
 
 ANC_DESCRIPTION = {
     ANC_SEAT: "Reserve exit row and make your flight even more pleasant.",
     ANC_BAG: "Take more luggage. Maybe a bike?",
     ANC_SKI: "Remember to take your skis with you!",
-    ANC_FOOD: "Improve your experience with delicious meal on board."
+    ANC_FOOD: "Improve your experience with delicious meal on board.",
 }

@@ -130,7 +130,7 @@ db = [
     },
     {
         "code": "EVN",
-        "description": 'When planning a trip to the Caucasus, you should consider Yerevan, the energetic capital of Armenia. The Republic Square is surrounded by monumental office buildings built of yellow and pink tuff — volcanic ash. When being in the city center you can go to the Museum of Armenian History and learn about the oldest Christian state. You also might be interested in a walk through the Cascades to see Ararat over pink tuff buildings.',
+        "description": "When planning a trip to the Caucasus, you should consider Yerevan, the energetic capital of Armenia. The Republic Square is surrounded by monumental office buildings built of yellow and pink tuff — volcanic ash. When being in the city center you can go to the Museum of Armenian History and learn about the oldest Christian state. You also might be interested in a walk through the Cascades to see Ararat over pink tuff buildings.",
         "pf": 1.1,
         "name": "Yervan",
         "country": "Armenia",
@@ -141,7 +141,7 @@ db = [
     },
     {
         "code": "NRT",
-        "description": 'Fans of urban hustle and exotic flavors will definitely enjoy Tokyo. The city is full of life by day and by night. During a travel to the capital of the Land of the Rising Sun visit one of the most crowded crossings in the world - Shibuya Crossing. Later go to one of the most expensive districts of Tokyo - Ginza, and try local sushi at one of famous fish markets.',
+        "description": "Fans of urban hustle and exotic flavors will definitely enjoy Tokyo. The city is full of life by day and by night. During a travel to the capital of the Land of the Rising Sun visit one of the most crowded crossings in the world - Shibuya Crossing. Later go to one of the most expensive districts of Tokyo - Ginza, and try local sushi at one of famous fish markets.",
         "pf": 2.1,
         "name": "Tokyo",
         "country": "Japan",
@@ -210,5 +210,5 @@ db = [
         "img": f'{settings["base_url"]}/static/img/BKK.jpg',
         "adds": [ANC_SEAT, ANC_FOOD],
         "tags": {WILDERNESS, HOT, SEA, CULTURE, LANDSCAPE},
-    }
+    },
 ]
