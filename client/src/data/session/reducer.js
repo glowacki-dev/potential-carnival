@@ -11,7 +11,7 @@ let init_state = {
   latitude: 2.7455799579619997,
   longitude: 101.70999908446998,
   matches: [{ name: 'Imprezy' }, { name: 'Historia' }, { name: 'Zabytki' }],
-  perks: []
+  perks: [{ name: 'Biznes' }, { name: 'Dodatkowy bagaz' }]
 };
 
 export const session_reducer = (state = init_state, action) => {
