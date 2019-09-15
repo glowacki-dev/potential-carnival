@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { StaticMap } from 'react-map-gl';
-import DeckGL, { LineLayer } from 'deck.gl';
+import DeckGL, { ArcLayer, LineLayer } from 'deck.gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import WebMercatorViewport from 'viewport-mercator-project';
 
@@ -25,16 +25,18 @@ class Map extends Component {
     const viewState = {
       longitude: longitude,
       latitude: latitude,
-      zoom: zoom
+      zoom: zoom,
+      pitch: 25
     };
 
     const layers = [
-      new LineLayer({
+      new ArcLayer({
         id: 'line-layer',
         data: data,
         getSourcePosition: d => d.source,
         getTargetPosition: d => d.target,
-        getColor: () => [51, 80, 141, 255],
+        getSourceColor: () => [51, 80, 141, 60],
+        getTargetColor: () => [51, 80, 141, 255],
         getStrokeWidth: () => 6
       })
     ];
@@ -58,7 +60,7 @@ class Map extends Component {
         >
           <StaticMap
             mapboxApiAccessToken="pk.eyJ1IjoiYm9tYmFzYXJrYWRpYW4iLCJhIjoiY2swazA5cTRqMDY1NTNjbnU4aHE4MHR2OCJ9.AdcMo2ewAlg4ToY1ZXDWPQ"
-            mapStyle="mapbox://styles/bombasarkadian/ck0k0a3cl1z101cks7dqu7rlh"
+            mapStyle="mapbox://styles/mapbox/light-v9"
           />
         </DeckGL>
       </div>

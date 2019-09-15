@@ -95,7 +95,7 @@ export default connect(
   ({ images, session }) => ({
     progress: {
       count: images.images.filter(image => image.isSelected).length,
-      max: Math.ceil(images.images.length / 3)
+      max: Math.ceil(images.images.length / 4)
     },
     sessionID: session.sessionID,
     selectedIDS: images.selectedIDS

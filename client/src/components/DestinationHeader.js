@@ -55,7 +55,7 @@ class PureDestinationHeader extends Component {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {this.props.decision.name}
+            {this.props.decision.country} - {this.props.decision.name}
           </Typography>
           <Grid container>
             <Grid item md={7}>

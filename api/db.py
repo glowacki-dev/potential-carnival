@@ -34,7 +34,7 @@ db = [
         "lat": "46.23809814453125",
         "long": "6.108950138092041",
         "img": f'{settings["base_url"]}/static/img/GVA.png',
-        "tags": {CITY, MOUNTAIN, HOTEL, LAKE, LANDSCAPE, COLD, SPORT, SKI},
+        "tags": {MOUNTAIN, HOTEL, LAKE, COLD, SKI},
     },
     {
         "code": "ARN",
