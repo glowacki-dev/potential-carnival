@@ -17,6 +17,11 @@ export class DecisionClient extends BaseClient {
       mode: 'cors'
     });
 
-    return await decision.json();
+    const decision_body = await decision.json();
+
+    decision = decision_body.result;
+    decision.long = parseFloat(decision.long);
+    decision.lat = parseFloat(decision.lat);
+    return decision;
   };
 }

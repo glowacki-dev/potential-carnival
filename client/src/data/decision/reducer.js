@@ -14,7 +14,8 @@ export const decision_reducer = (state = init_state, action) => {
     case decision_actions.DECISION_FETCH_SUCCESS:
       return {
         ...state,
-        isDecisionFetching: false
+        isDecisionFetching: false,
+        decision: action.decision
       };
     default:
       return state;

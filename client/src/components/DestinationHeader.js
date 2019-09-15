@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import Map from './Map';
 import store from './../data';
 import { fetchDecision } from '../data/decision/actions';
+import FullLoader from './FullLoader';
 
 const styles = {
   mainFeaturedPost: {
@@ -56,11 +57,14 @@ export class PureDestinationHeader extends Component {
   render() {
     const { classes } = this.props;
 
+    console.log(this.props.decision);
+    if (!this.props.decision) return <FullLoader />;
+
     return (
       <Paper
         elevation={0}
         className={classes.mainFeaturedPost}
-        style={{ backgroundImage: `url(${this.props.image_url})` }}
+        style={{ backgroundImage: `url(${this.props.decision.image_url})` }}
       >
         {/* Increase the priority of the hero background image */}
         {
@@ -75,15 +79,17 @@ export class PureDestinationHeader extends Component {
           <Grid item md={8}>
             <div className={classes.mainFeaturedPostContent}>
               <Typography component="h1" variant="h3" gutterBottom>
-                {this.props.name}
+                {this.props.decision.name}
               </Typography>
-              <Typography paragraph>{this.props.description}</Typography>
+              <Typography paragraph>
+                {this.props.decision.description}
+              </Typography>
             </div>
           </Grid>
           <Grid item md={4} style={{ position: 'relative' }}>
             <Map
-              latitude={this.props.latitude}
-              longitude={this.props.longitude}
+              latitude={this.props.decision.lat}
+              longitude={this.props.decision.long}
             />
           </Grid>
         </Grid>
@@ -92,24 +98,10 @@ export class PureDestinationHeader extends Component {
   }
 }
 
-PureDestinationHeader.propTypes = {
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  image_url: PropTypes.string.isRequired,
-  latitude: PropTypes.number.isRequired,
-  longitude: PropTypes.number.isRequired
-};
-
 export default compose(
   withStyles(styles),
   connect(({ session, decision, images }) => {
     return {
-      name: session.name,
-      description: session.description,
-      image_url: session.image_url,
-      latitude: session.latitude,
-      longitude: session.longitude,
-
       sessionID: session.sessionID,
       decision: decision.decision,
       isDecisionFetching: decision.isDecisionFetching,
