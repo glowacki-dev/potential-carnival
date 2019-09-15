@@ -52,9 +52,9 @@ export function PureProgress({
           <Container maxWidth="sm">
             {count < max || !max ? (
               <Tooltip
-                title={`Please choose at least ${Math.round(
-                  max - count
-                )} more ${max - count > 1 ? 'photos' : 'photo'}`}
+                title={`Please choose at least ${max - count} more ${
+                  max - count > 1 ? 'photos' : 'photo'
+                }`}
               >
                 <div>
                   <Button variant="contained" color="secondary" disabled>
@@ -95,7 +95,7 @@ export default connect(
   ({ images, session }) => ({
     progress: {
       count: images.images.filter(image => image.isSelected).length,
-      max: images.images.length / 3
+      max: Math.ceil(images.images.length / 3)
     },
     sessionID: session.sessionID,
     selectedIDS: images.selectedIDS

@@ -19,6 +19,7 @@ const styles = {
     maxWidth: 1051,
     height: 287,
     marginBottom: '4em',
+    backgroundColor: 'transparent',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center'
@@ -28,10 +29,7 @@ const styles = {
     top: 0,
     bottom: 0,
     right: 0,
-    left: 0,
-    backgroundColor: 'rgba(0,0,0,0.3)',
-    background:
-      'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 60%, rgba(255, 255, 255, 0.3) 70%, rgba(255,255,255,1) 98%)'
+    left: 0
   },
   mainGrid: {
     position: 'relative',
@@ -64,13 +62,13 @@ export class PureDestinationHeader extends Component {
       <Paper
         elevation={0}
         className={classes.mainFeaturedPost}
-        style={{ backgroundImage: `url(${this.props.decision.image_url})` }}
+        style={{ backgroundImage: `url(${this.props.decision.img})` }}
       >
         {/* Increase the priority of the hero background image */}
         {
           <img
             style={{ display: 'none' }}
-            src={this.props.image_url}
+            src={this.props.decision.img}
             alt="background"
           />
         }
