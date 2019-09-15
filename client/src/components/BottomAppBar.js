@@ -10,6 +10,9 @@ const useStyles = makeStyles({
   appBar: {
     top: 'auto',
     bottom: 0
+  },
+  appBarPadder: {
+    height: 64
   }
 });
 
@@ -17,9 +20,12 @@ function BottomAppBar({ content }) {
   const classes = useStyles();
 
   return (
-    <AppBar position="fixed" color="primary" className={classes.appBar}>
-      <Toolbar>{content}</Toolbar>
-    </AppBar>
+    <div>
+      <div className={classes.appBarPadder}></div>
+      <AppBar position="fixed" color="primary" className={classes.appBar}>
+        <Toolbar>{content}</Toolbar>
+      </AppBar>
+    </div>
   );
 }
 
