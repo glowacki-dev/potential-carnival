@@ -8,6 +8,20 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { ImagesView } from './views/Images';
 import { SummaryView } from './views/Summary';
 import { obtainSession } from './data/session/actions';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+import { blue, orange } from '@material-ui/core/colors';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#083377'
+    },
+    secondary: {
+      main: '#E33D32'
+    }
+  }
+});
 
 class App extends Component {
   componentDidMount() {
@@ -19,15 +33,17 @@ class App extends Component {
 
   render() {
     return (
-      <Provider store={store}>
-        <CssBaseline />
-        <Container component="main" maxWidth="md">
-          <Router>
-            <Route path="/" exact component={ImagesView} />
-            <Route path="/summary/" component={SummaryView} />
-          </Router>
-        </Container>
-      </Provider>
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <CssBaseline />
+          <Container component="main" maxWidth="md">
+            <Router>
+              <Route path="/" exact component={ImagesView} />
+              <Route path="/summary/" component={SummaryView} />
+            </Router>
+          </Container>
+        </Provider>
+      </ThemeProvider>
     );
   }
 }

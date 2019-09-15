@@ -21,10 +21,16 @@ import FullLoader from './FullLoader';
 const styles = {
   card: {
     maxWidth: 1051,
-    margin: 20
+    margin: 20,
+    backgroundColor: '#fefcf5'
   },
   media: {
     height: 287
+  },
+  cardActions: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   }
 };
 
@@ -72,7 +78,7 @@ class PureDestinationHeader extends Component {
                     height: 300,
                     borderRadius: '50%',
                     background:
-                      'radial-gradient(circle, rgba(169,206,233,0) 0%, rgba(146,207,255,0) 60%, rgba(52,119,190,0.5900735294117647) 100%)',
+                      'background-image: radial-gradient(circle, rgba(169, 206, 233, 0) 0%, rgba(146, 207, 255, 0) 60%, rgba(52, 119, 190, 0.4) 85%)',
                     position: 'absolute',
                     zIndex: '999',
                     top: 0,
@@ -89,20 +95,21 @@ class PureDestinationHeader extends Component {
             </Grid>
           </Grid>
         </CardContent>
-        <CardActions>
+        <CardActions className={classes.cardActions}>
           <Button color="primary" href="/">
-            <RefreshTwoToneIcon />
             Find something else
+            <RefreshTwoToneIcon style={{ marginLeft: 10 }} />
           </Button>
           <Button
             style={{ paddingLeft: 20 }}
-            color="primary"
+            color="secondary"
+            variant="contained"
             href={this.props.decision.price.url}
           >
-            <ShoppingCartTwoToneIcon />
             {this.props.decision.price.price
               ? `Book this flight for ${this.props.decision.price.price} ${this.props.decision.price.currency}`
               : 'Find this flight on Lot.com'}
+            <ShoppingCartTwoToneIcon style={{ marginLeft: 10 }} />
           </Button>
         </CardActions>
       </Card>

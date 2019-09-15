@@ -17,7 +17,7 @@ class PureDestinationDetails extends Component {
     if (!this.props.decision) return <FullLoader />;
 
     return (
-      <div>
+      <div style={{ marginTop: 10 }}>
         <ItemsList
           title="What you'd like there:"
           items={(this.props.decision.tags || []).map(tag => tag.description)}

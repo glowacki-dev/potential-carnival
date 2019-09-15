@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { connect } from 'react-redux';
@@ -11,12 +10,26 @@ import { Link } from 'react-router-dom';
 
 import store from './../data';
 import { saveImages } from '../data/Images/actions';
+import {
+  createMuiTheme,
+  withStyles,
+  makeStyles
+} from '@material-ui/core/styles';
+import { grey } from '@material-ui/core/colors';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 
 const useStyles = makeStyles({
   root: {
     flexGrow: 1
   }
 });
+
+const WhiteButton = withStyles(theme => ({
+  root: {
+    color: grey[100],
+    borderColor: grey[100]
+  }
+}))(Button);
 
 const AdapterLink = React.forwardRef((props, ref) => (
   <Link innerRef={ref} {...props} />
@@ -53,13 +66,14 @@ export function PureProgress({
             {count < max || !max ? (
               <Tooltip
                 title={`Please choose at least ${max - count} more ${
-                  max - count > 1 ? 'photos' : 'photo'
+                  max - count > 1 ? 'images' : 'image'
                 }`}
               >
                 <div>
-                  <Button variant="contained" color="secondary" disabled>
-                    Choose more photos
-                  </Button>
+                  <WhiteButton variant="outlined">
+                    Choose {max - count} more{' '}
+                    {max - count > 1 ? 'images' : 'image'}
+                  </WhiteButton>
                 </div>
               </Tooltip>
             ) : (
@@ -74,6 +88,7 @@ export function PureProgress({
                   to="/summary/"
                 >
                   Let's go!
+                  <FlightTakeoffIcon style={{ marginLeft: 10 }} />
                 </Button>
               </Tooltip>
             )}
