@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import red from '@material-ui/core/colors/red';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
@@ -9,6 +8,9 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Link } from 'react-router-dom';
+
+import store from './../data';
+import { saveImages } from '../data/Images/actions';
 
 const useStyles = makeStyles({
   root: {
@@ -20,7 +22,11 @@ const AdapterLink = React.forwardRef((props, ref) => (
   <Link innerRef={ref} {...props} />
 ));
 
-export function PureProgress({ progress: { count, max } }) {
+export function PureProgress({
+  progress: { count, max },
+  sessionID,
+  selectedIDS
+}) {
   const classes = useStyles();
 
   return (
@@ -59,6 +65,9 @@ export function PureProgress({ progress: { count, max } }) {
                 <Tooltip title="You can still select more images if you want">
                   {/* POST to API, redirect and clean state */}
                   <Button
+                    onClick={() => {
+                      store.dispatch(saveImages(sessionID, selectedIDS));
+                    }}
                     variant="contained"
                     color="secondary"
                     component={AdapterLink}
@@ -84,11 +93,13 @@ PureProgress.propTypes = {
 };
 
 export default connect(
-  ({ images }) => ({
+  ({ images, session }) => ({
     progress: {
       count: images.images.filter(image => image.isSelected).length,
       max: images.images.length / 4
-    }
+    },
+    sessionID: session.sessionID,
+    selectedIDS: images.selectedIDS
   }),
   () => ({})
 )(PureProgress);

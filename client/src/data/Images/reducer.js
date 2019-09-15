@@ -18,15 +18,12 @@ export const images_reducer = (state = default_state, action) => {
     case image_actions.IMAGE_FETCH_REQUEST:
       return {
         ...state,
-        isImageFetching: true,
-        isImageFinished: false,
-        images: state.images
+        isImageFetching: true
       };
     case image_actions.IMAGE_FETCH_SUCCESS:
       return {
         ...state,
         isImageFetching: false,
-        isImageFinished: false,
         images: state.images.concat(action.images)
       };
     default:

@@ -49,7 +49,7 @@ def save_images():
         return jsonify({'error': 'Missing img_ids parameter in body, expecting list'}), 400
 
     img_service = ImagesService(request.session)
-    img_service.select_image(data['img_id'])
+    img_service.select_images(data['img_ids'])
 
     return jsonify()
 
