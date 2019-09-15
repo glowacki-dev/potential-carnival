@@ -41,8 +41,8 @@ def select_best_destination(choices):
     # avg_pf = avg_price_factor(choices)
     # options.sort(key=lambda x: x['pf'] - avg_pf)
     best = choice(options)
-    tags_description = {t: TAG_DESCRIPTION.get(t) for t in selected_tags}
-    adds_description = {a: ANC_DESCRIPTION.get(a) for a in best.get('adds', [])}
+    tags_description = [{'name': t, 'description': TAG_DESCRIPTION.get(t)} for t in selected_tags]
+    adds_description = [{'name': a, 'description': ANC_DESCRIPTION.get(a)} for a in best.get('adds', [])]
     return best, tags_description, adds_description
 
 
@@ -57,4 +57,7 @@ class DecisionService:
 
         best, tags, adds = select_best_destination(choices)
         best['tags'] = list(best['tags'])
+        # self.session.update({'best': best})
+        # self.session.update({'tags': tags})
+        # self.session.update({'adds': adds})
         return {'result': best, 'tags': tags, 'adds': adds}

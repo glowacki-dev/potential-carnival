@@ -6,7 +6,7 @@ from api.helpers.session import session_wrapper
 from api.services.sessions import SessionService
 from api.services.images import ImagesService
 from api.services.decide import DecisionService
-
+from api.services.prices import PriceService
 
 app = Flask(__name__)
 app.services = {
@@ -62,3 +62,18 @@ def get_decisions():
     if not result:
         return jsonify({'error': 'No choices in session'}), 500
     return jsonify(result)
+
+
+@app.route('/prices/', methods=['GET'])
+@session_wrapper()
+def get_price():
+    data = request.json
+    for key in ["origin", "destination", "departureDate", "returnDate", "adults"]:
+        if not data.get(key):
+            return jsonify({'error': f'Body must specify {key}'}), 400
+    decision_service = PriceService(data)
+    try:
+        result = decision_service.get_price()
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

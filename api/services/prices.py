@@ -2,20 +2,13 @@ from lot_wrapper import Lot
 
 
 class PriceService:
-    def __init__(self, session):
-        self.session = session
+    def __init__(self, data):
+        self.data = data
 
     def get_price(self):
-        # TODO
-        origin: str = "WAW"
-        destination: str = "MAD"
-        departureDate: str = "22102019"
-        returnDate: str = "12112019"
-        adults: int = 1
-
         lot = Lot()
         lot.auth()
-        result = lot.get_availability(origin, destination, departureDate, returnDate, adults)
+        result = lot.get_availability(**self.data)
         flights = [r[0] for r in result]
         flight = flights[0]
         return {
