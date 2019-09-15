@@ -87,7 +87,7 @@ export default connect(
   ({ images }) => ({
     progress: {
       count: images.images.filter(image => image.isSelected).length,
-      max: images.images.length
+      max: images.images.length / 4
     }
   }),
   () => ({})
