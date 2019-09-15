@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
+from random import choice
 
 from api.helpers.session import session_wrapper
 from api.services.sessions import SessionService
@@ -66,8 +66,8 @@ def get_decisions():
         'origin': 'WAW',
         'destination': result['result']['code'],
         "adults": 1,
-        "departureDate": "10102019",
-        "returnDate": "24102019"
+        "departureDate": choice([f"{i}102019" for i in range(11, 29)]),
+        "returnDate": choice([f"{i}112019" for i in range(11, 29)])
     })
     try:
         price = decision_service.get_price()

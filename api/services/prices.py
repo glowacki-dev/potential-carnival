@@ -12,7 +12,7 @@ class PriceService:
         flights = [r[0] for r in result]
         flight = flights[0]
         return {
-            'price': flight['totalPrice']['price'] + flight['totalPrice']['tax'],
+            'price': round(flight['totalPrice']['price'] + flight['totalPrice']['tax'], 2),
             'currency': flight['totalPrice']['currency'],
             'url': flight['url'],
             'time_outbound': flight['outbound']['duration'],
