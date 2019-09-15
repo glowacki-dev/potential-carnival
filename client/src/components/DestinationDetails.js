@@ -24,7 +24,7 @@ class PureDestinationDetails extends Component {
         />
         <ItemsList
           title="Recommended upgrades:"
-          items={(this.props.decision.adds || []).map(add => add.name)}
+          items={(this.props.decision.adds || []).map(add => add.description)}
         />
       </div>
     );
