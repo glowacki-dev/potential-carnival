@@ -61,6 +61,19 @@ def get_decisions():
     result = decision_service.make_decision()
     if not result:
         return jsonify({'error': 'No choices in session'}), 500
+
+    decision_service = PriceService({
+        'origin': 'WAW',
+        'destination': result['result']['code'],
+        "adults": 1,
+        "departureDate": "10102019",
+        "returnDate": "22102019"
+    })
+    try:
+        price = decision_service.get_price()
+    except:
+        price = {'url': "https://lot.com/"}
+    result.update(price=price)
     return jsonify(result)
 
 
