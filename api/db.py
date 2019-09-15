@@ -329,6 +329,7 @@ db = [
         "lat": "35.41",
         "long": "139.41",
         "img": f'{settings["base_url"]}/static/img/NRT.jpg',
+        "adds": [ANC_SEAT, ANC_FOOD],
         "tags": {FOOD, CITY, HOTEL, MOUNTAIN, LANDSCAPE},
         "temp": [
             20.1,
@@ -355,6 +356,7 @@ db = [
         "lat": "43.44",
         "long": "-79.22",
         "img": f'{settings["base_url"]}/static/img/YYZ.jpg',
+        "adds": [ANC_BAG, ANC_SEAT],
         "tags": {TENT, MOUNTAIN, LANDSCAPE, LAKE},
         "temp": [
             -2.6,

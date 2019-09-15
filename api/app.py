@@ -67,7 +67,7 @@ def get_decisions():
         'destination': result['result']['code'],
         "adults": 1,
         "departureDate": "10102019",
-        "returnDate": "22102019"
+        "returnDate": "24102019"
     })
     try:
         price = decision_service.get_price()
