@@ -34,7 +34,7 @@ class Map extends Component {
         data: data,
         getSourcePosition: d => d.source,
         getTargetPosition: d => d.target,
-        getColor: () => [0, 0, 120, 160],
+        getColor: () => [51, 80, 141, 255],
         getStrokeWidth: () => 6
       })
     ];
@@ -58,7 +58,7 @@ class Map extends Component {
         >
           <StaticMap
             mapboxApiAccessToken="pk.eyJ1IjoiYm9tYmFzYXJrYWRpYW4iLCJhIjoiY2swazA5cTRqMDY1NTNjbnU4aHE4MHR2OCJ9.AdcMo2ewAlg4ToY1ZXDWPQ"
-            mapStyle="mapbox://styles/mapbox/light-v9"
+            mapStyle="mapbox://styles/bombasarkadian/ck0k0a3cl1z101cks7dqu7rlh"
           />
         </DeckGL>
       </div>
