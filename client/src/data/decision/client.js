@@ -22,6 +22,9 @@ export class DecisionClient extends BaseClient {
     decision = decision_body.result;
     decision.long = parseFloat(decision.long);
     decision.lat = parseFloat(decision.lat);
+    decision.tags = decision_body.tags;
+    decision.adds = decision_body.adds;
+    decision.price = decision_body.price;
     return decision;
   };
 }

@@ -5,26 +5,32 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import StarIcon from '@material-ui/icons/Star';
+import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 import PropTypes from 'prop-types';
 
 class ItemsList extends Component {
   render() {
-    if (this.props.items.length === 0) {
-      return <div>Empty :(</div>;
-    }
-
     return (
       <div>
         <Typography variant="h6">{this.props.title}</Typography>
-        <List>
-          {this.props.items.map(item => (
-            <ListItem>
+        <List dense={true}>
+          {this.props.items.length > 0 ? (
+            this.props.items.map(item => (
+              <ListItem key={item}>
+                <ListItemIcon>
+                  <StarIcon />
+                </ListItemIcon>
+                <ListItemText primary={item} />
+              </ListItem>
+            ))
+          ) : (
+            <ListItem key="Nothing found">
               <ListItemIcon>
-                <StarIcon />
+                <SentimentDissatisfiedIcon />
               </ListItemIcon>
-              <ListItemText primary={item.name} secondary={item.description} />
+              <ListItemText primary="Nothing found" />
             </ListItem>
-          ))}
+          )}
         </List>
       </div>
     );

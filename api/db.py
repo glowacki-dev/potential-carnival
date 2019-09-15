@@ -56,7 +56,7 @@ db = [
     },
     {
         "code": "GVA",
-        "description": "Geneva, as well as the whole Switzerland, is associated with chocolate and watches, but these are not the only products worth buying there. In Geneva, it is worth going for fashion shopping. Although the city center is full of boutiques of the best world brands, the flea market Plaine de Plainpalais, where you can find fashion retro things, is also interesting.",
+        "description": "Geneva, as well as the whole Switzerland, is associated with chocolate and watches, but these are not the only products worth buying there. In Geneva, it is worth going for fashion shopping. Although the city center is full of boutiques of the best world brands, the flea market Plaine de Plainpalais, where you can find fashion retro things, is also interesting.",
         "pf": 1.6,
         "name": "Geneva",
         "country": "Switzerland",
@@ -190,7 +190,7 @@ db = [
     },
     {
         "code": "LWO",
-        "description": "A walk along the streets of Lviv is a treat for enthusiasts of modernism. Next to numerous monuments there are many pearls of modernist architecture. Lviv is also famous for its majestic memorials. One of the most popular is Adam Mickiewicz’s statue.",
+        "description": "A walk along the streets of Lviv is a treat for enthusiasts of modernism. Next to numerous monuments there are many pearls of modernist architecture. Lviv is also famous for its majestic memorials. One of the most popular is Adam Mickiewicz’s statue.",
         "pf": 0.8,
         "name": "Lvov",
         "country": "Ukraine",
@@ -243,7 +243,7 @@ db = [
     },
     {
         "code": "LAX",
-        "description": "Los Angeles is a city connected with nature, where bustling neighborhoods combine with golden beaches and hills densely woven by plants. It is also a global center of creativity and entertainment. It attracts courageous dreamers and creators to realize their visions on stages and film studios.",
+        "description": "Los Angeles is a city connected with nature, where bustling neighborhoods combine with golden beaches and hills densely woven by plants. It is also a global center of creativity and entertainment. It attracts courageous dreamers and creators to realize their visions on stages and film studios.",
         "pf": 1.5,
         "name": "Los Angeles",
         "country": "United States",
@@ -270,7 +270,7 @@ db = [
     },
     {
         "code": "DBV",
-        "description": 'Dubrovnik is vibrant city that never sleeps. There are many museums and monuments - its old town was inscribed on the UNESCO World Heritage List. An interesting fact is that in the city you can see places known from the "Game of Thrones" series, including St. Dominic Street and Bokar or Minceta Fortress.',
+        "description": 'Dubrovnik is vibrant city that never sleeps. There are many museums and monuments - its old town was inscribed on the UNESCO World Heritage List. An interesting fact is that in the city you can see places known from the "Game of Thrones" series, including St. Dominic Street and Bokar or Minceta Fortress.',
         "pf": 1.1,
         "name": "Dubrovnik",
         "country": "Croatia",
@@ -322,7 +322,7 @@ db = [
     },
     {
         "code": "NRT",
-        "description": 'Fans of urban hustle and exotic flavors will definitely enjoy Tokyo. The city is full of life by day and by night. During a travel to the capital of the Land of the Rising Sun visit one of the most crowded crossings in the world - Shibuya Crossing. Later go to one of the most expensive districts of Tokyo - Ginza, and try local sushi at one of famous fish markets.',
+        "description": 'Fans of urban hustle and exotic flavors will definitely enjoy Tokyo. The city is full of life by day and by night. During a travel to the capital of the Land of the Rising Sun visit one of the most crowded crossings in the world - Shibuya Crossing. Later go to one of the most expensive districts of Tokyo - Ginza, and try local sushi at one of famous fish markets.',
         "pf": 2.1,
         "name": "Tokyo",
         "country": "Japan",
@@ -349,7 +349,7 @@ db = [
     },
     {
         "code": "YYZ",
-        "description": "Toronto is a multicultural city. Almost every day there are extraordinary festivals, shows, exhibitions and sports competitions. It's worth to remember, that Canadians especially love hockey. ",
+        "description": "Toronto is a multicultural city. Almost every day there are extraordinary festivals, shows, exhibitions and sports competitions. It's worth to remember, that Canadians especially love hockey.",
         "pf": 0.8,
         "name": "Toronto",
         "country": "Canada",

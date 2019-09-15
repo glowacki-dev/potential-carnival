@@ -8,28 +8,31 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
+import ItemsList from './ItemsList';
+import DestinationHeader from './DestinationHeader';
+import FullLoader from './FullLoader';
 
-const styles = {};
-
-export class PureDestinationDetails extends Component {
+class PureDestinationDetails extends Component {
   render() {
-    const { classes } = this.props;
+    if (!this.props.decision) return <FullLoader />;
 
-    return <Paper elevation={2}></Paper>;
+    return (
+      <div>
+        <ItemsList
+          title="What you'd like there:"
+          items={(this.props.decision.tags || []).map(tag => tag.description)}
+        />
+        <ItemsList
+          title="Recommended upgrades:"
+          items={(this.props.decision.adds || []).map(add => add.name)}
+        />
+      </div>
+    );
   }
 }
 
 PureDestinationDetails.propTypes = {
-  matches: PropTypes.array.isRequired,
-  perks: PropTypes.array.isRequired
+  decision: PropTypes.object.isRequired
 };
 
-export default compose(
-  withStyles(styles),
-  connect(({ images, session }) => {
-    return {
-      matches: session.matches,
-      perks: session.perks
-    };
-  })
-)(PureDestinationDetails);
+export default PureDestinationDetails;

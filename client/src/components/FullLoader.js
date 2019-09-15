@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     right: 0,
     background:
-      'linear-gradient(161deg, rgba(78,113,163,1) 0%, rgba(202,209,237,1) 100%)',
+      'radial-gradient(circle, rgba(169,206,233,1) 0%, rgba(52,119,190,1) 100%)',
     color: '#FFF',
     display: 'flex',
     justifyContent: 'center',

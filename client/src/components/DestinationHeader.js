@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
-import PropTypes from 'prop-types';
+import Card from '@material-ui/core/Card';
+import Grid from '@material-ui/core/Grid';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import DestinationDetails from './DestinationDetails';
+import ShoppingCartTwoToneIcon from '@material-ui/icons/ShoppingCartTwoTone';
+import RefreshTwoToneIcon from '@material-ui/icons/RefreshTwoTone';
 
 import Map from './Map';
 import store from './../data';
@@ -13,34 +19,16 @@ import { fetchDecision } from '../data/decision/actions';
 import FullLoader from './FullLoader';
 
 const styles = {
-  mainFeaturedPost: {
-    position: 'relative',
-    color: 'white',
+  card: {
     maxWidth: 1051,
-    height: 287,
-    marginBottom: '4em',
-    backgroundColor: 'transparent',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'left'
+    margin: 20
   },
-  overlay: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0
-  },
-  mainGrid: {
-    position: 'relative',
-    top: 170,
-    color: 'black'
-  },
-  mainFeaturedPostContent: {
-    padding: '2em'
+  media: {
+    height: 287
   }
 };
 
-export class PureDestinationHeader extends Component {
+class PureDestinationHeader extends Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (
       !this.props.decision &&
@@ -54,43 +42,55 @@ export class PureDestinationHeader extends Component {
   render() {
     const { classes } = this.props;
 
-    console.log(this.props.decision);
     if (!this.props.decision) return <FullLoader />;
 
+    console.log(this.props.decision);
+
     return (
-      <Paper
-        elevation={0}
-        className={classes.mainFeaturedPost}
-        style={{ backgroundImage: `url(${this.props.decision.img})` }}
-      >
-        {/* Increase the priority of the hero background image */}
-        {
-          <img
-            style={{ display: 'none' }}
-            src={this.props.decision.img}
-            alt="background"
-          />
-        }
-        <div className={classes.overlay} />
-        <Grid container className={classes.mainGrid}>
-          <Grid item md={8}>
-            <div className={classes.mainFeaturedPostContent}>
-              <Typography component="h1" variant="h3" gutterBottom>
-                {this.props.decision.name}
-              </Typography>
-              <Typography paragraph>
+      <Card className={classes.card} raised={true}>
+        <CardMedia
+          className={classes.media}
+          image={this.props.decision.img}
+          title={this.props.decision.name}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {this.props.decision.name}
+          </Typography>
+          <Grid container>
+            <Grid item md={7}>
+              <Typography variant="body2" color="textSecondary" component="p">
                 {this.props.decision.description}
               </Typography>
-            </div>
+              <DestinationDetails decision={this.props.decision} />
+            </Grid>
+            <Grid item md={5}>
+              <div style={{ position: 'relative' }}>
+                <Map
+                  latitude={this.props.decision.lat}
+                  longitude={this.props.decision.long}
+                />
+              </div>
+            </Grid>
           </Grid>
-          <Grid item md={4} style={{ position: 'relative' }}>
-            <Map
-              latitude={this.props.decision.lat}
-              longitude={this.props.decision.long}
-            />
-          </Grid>
-        </Grid>
-      </Paper>
+        </CardContent>
+        <CardActions>
+          <Button color="primary" href="/">
+            <RefreshTwoToneIcon />
+            Find something else
+          </Button>
+          <Button
+            style={{ paddingLeft: 20 }}
+            color="primary"
+            href={this.props.decision.price.url}
+          >
+            <ShoppingCartTwoToneIcon />
+            {this.props.decision.price.price
+              ? `Book this flight for ${this.props.decision.price.price} ${this.props.decision.price.currency}`
+              : 'Find this flight on Lot.com'}
+          </Button>
+        </CardActions>
+      </Card>
     );
   }
 }

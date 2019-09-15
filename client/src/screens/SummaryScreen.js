@@ -6,9 +6,8 @@ import DestinationDetails from '../components/DestinationDetails';
 export class PureSummaryScreen extends Component {
   render() {
     return (
-      <div>
+      <div style={{ paddingBottom: 10 }}>
         <DestinationHeader />
-        <DestinationDetails />
       </div>
     );
   }
