@@ -7,24 +7,27 @@ import DeckGL, { LineLayer } from 'deck.gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import WebMercatorViewport from 'viewport-mercator-project';
 
-const data = [{ source: [21.0122, 52.2297], target: [101.6869, 3.139] }];
-
-const { longitude, latitude, zoom } = new WebMercatorViewport({
-  width: 300,
-  height: 300
-}).fitBounds([[21.0122, 52.2297], [101.6869, 3.139]], {
-  padding: 50,
-  offset: [0, -0]
-});
-
-const viewState = {
-  longitude: longitude,
-  latitude: latitude,
-  zoom: zoom
-};
+const warsaw = [21.0122, 52.2297];
 
 class Map extends Component {
   render() {
+    const data = [
+      { source: warsaw, target: [this.props.longitude, this.props.latitude] }
+    ];
+    const { longitude, latitude, zoom } = new WebMercatorViewport({
+      width: 300,
+      height: 300
+    }).fitBounds([warsaw, data[0].target], {
+      padding: 50,
+      offset: [0, -0]
+    });
+
+    const viewState = {
+      longitude: longitude,
+      latitude: latitude,
+      zoom: zoom
+    };
+
     const layers = [
       new LineLayer({
         id: 'line-layer',

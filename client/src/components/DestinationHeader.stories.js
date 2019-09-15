@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import DestinationHeader from './DestinationHeader';
+import { PureDestinationHeader } from './DestinationHeader';
 
 export const destination = {
   id: '1',
@@ -14,5 +14,5 @@ export const destination = {
 };
 
 storiesOf('DestinationHeader', module).add('default', () => (
-  <DestinationHeader destination={destination} />
+  <PureDestinationHeader {...destination} />
 ));
