@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/styles';
-import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 
 import Map from './Map';
+import store from './../data';
+import { fetchDecision } from '../data/decision/actions';
 
 const styles = {
   mainFeaturedPost: {
@@ -43,6 +42,16 @@ const styles = {
 };
 
 export class PureDestinationHeader extends Component {
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (
+      !this.props.decision &&
+      !this.props.isImageSaving &&
+      !this.props.isDecisionFetching
+    ) {
+      store.dispatch(fetchDecision(this.props.sessionID));
+    }
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -93,14 +102,20 @@ export class PureDestinationHeader extends Component {
 
 export default compose(
   withStyles(styles),
-  connect(({ images, session }) => {
+  connect(({ session, decision, images }) => {
     return {
       id: session.id,
+
       name: session.name,
       description: session.description,
       image_url: session.image_url,
       latitude: session.latitude,
-      longitude: session.longitude
+      longitude: session.longitude,
+
+      sessionID: session.sessionID,
+      decision: decision.decision,
+      isDecisionFetching: decision.isDecisionFetching,
+      isImageSaving: images.isImageSaving
     };
   })
 )(PureDestinationHeader);
