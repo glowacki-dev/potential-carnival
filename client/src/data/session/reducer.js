@@ -10,7 +10,8 @@ let init_state = {
   image_url: 'https://placeimg.com/1051/287/any',
   latitude: 2.7455799579619997,
   longitude: 101.70999908446998,
-  matches: [{ name: 'Imprezy' }, { name: 'Historia' }, { name: 'Zabytki' }]
+  matches: [{ name: 'Imprezy' }, { name: 'Historia' }, { name: 'Zabytki' }],
+  perks: []
 };
 
 export const session_reducer = (state = init_state, action) => {
