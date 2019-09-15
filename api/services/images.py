@@ -5,7 +5,7 @@ from api.image_map import IMAGE_MAP
 
 
 class ImagesService:
-    IMAGES_COUNT = 10
+    IMAGES_COUNT = 18
 
     def __init__(self, session):
         self.session = session
