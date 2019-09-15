@@ -25,7 +25,6 @@ def avg_price_factor(choices: List[str]) -> float:
 
 def select_best_destination(choices) -> dict:
     cntr = Counter(sum((get_tags(ch, as_list=True) for ch in choices), []))
-
     rank = 1
     last_len = 0
     options = deepcopy(db)
@@ -45,4 +44,6 @@ class DecisionService:
 
     def make_decision(self):
         choices = set(self.session.get().get('choices'))
-        return select_best_destination(choices)
+        best = select_best_destination(choices)
+        best['tags'] = list(best['tags'])
+        return best

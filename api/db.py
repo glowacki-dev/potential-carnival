@@ -5,7 +5,7 @@ db = [
     {
         "code": "MAD",
         "description": "Madrid is a charming city. It is famous for both beautiful architecture and excellent museums. Their offer includes works by Pablo Picasso and Salvador Dalí. The Spanish capital loves fiesta, and every day the bars and clubs are full of music.",
-        "pf": "1,2",
+        "pf": 1.2,
         "name": "Madrid",
         "country": "Spain",
         "lat": "40.471926",
@@ -30,7 +30,7 @@ db = [
     {
         "code": "ZAD",
         "description": "",
-        "pf": "1,4",
+        "pf": 1.4,
         "name": "Zadar",
         "country": "Croatia",
         "lat": "44.108299",
@@ -55,7 +55,7 @@ db = [
     {
         "code": "GVA",
         "description": "Geneva, as well as the whole Switzerland, is associated with chocolate and watches, but these are not the only products worth buying there. In Geneva, it is worth going for fashion shopping. Although the city center is full of boutiques of the best world brands, the flea market Plaine de Plainpalais, where you can find fashion retro things, is also interesting.",
-        "pf": "1,6",
+        "pf": 1.6,
         "name": "Geneva",
         "country": "Switzerland",
         "lat": "46.23809814453125",
@@ -80,7 +80,7 @@ db = [
     {
         "code": "ARN",
         "description": "Stockholm, known as the Venice of the North, would have no trouble winning rivalry for the European capital city to be the most originally located – the old town is located on an island occupying a strip of land between the Baltic Sea and the great Mälaren Lake. The vicinities of Stockholm are a mosaic of pine forests, lakes and rocks.",
-        "pf": "1,6",
+        "pf": 1.6,
         "name": "Stockholm",
         "country": "Sweden",
         "lat": "59.651901245116996",
@@ -105,7 +105,7 @@ db = [
     {
         "code": "SOF",
         "description": "Sofia, the capital of Bulgaria and the largest city in the country, is one of the oldest cities of Europe. Since antiquity, the place has been influenced by both eastern and western traditions; and, as a result, Sofia is an extremely diverse city with rich tradition and culture. You can see the miraculous stone Orthodox churches, huge socialist-realist buildings, vibrant streets, and dark housing estates on the outskirts.",
-        "pf": "0,9",
+        "pf": 0.9,
         "name": "Sofia",
         "country": "Bulgaria",
         "lat": "42.696693420410156",
@@ -130,7 +130,7 @@ db = [
     {
         "code": "PEK",
         "description": "Beijing is famous for its unusual diversity and contradictions. Contrasts can be seen in the city from the first sight - old temples from the imperial times are mixed with modern, glass skyscrapers. The size of the metropolis and the crowds in it are also dazzling. Beijing is more than 30 times bigger than Warsaw and it is inhabited by almost 20 million people. The biggest attraction is the Forbidden City - the seat of the Emperors of the Ming and Qing dynasties from the fifteenth century.",
-        "pf": "1",
+        "pf": 1.0,
         "name": "Beijing",
         "country": "China",
         "lat": "40.0801010131836",
@@ -155,7 +155,7 @@ db = [
     {
         "code": "KUL",
         "description": "A visit to the capital of Malaysia is a feast for all the senses. The city landscape is decorated with skyscrapers, minarets and lush parks. The walks are accompanied by amazing aromas of freshly prepared dishes and drinks. Kuala Lumpur is characterized by multiculturalism which is perfectly reflected in the colorful Chinatown and fragrant Little India. This is one of our many connections to Asia, Australia and New Zealand, prepared with partner airlines with a convenient transfer in Singapore.",
-        "pf": "1,1",
+        "pf": 1.1,
         "name": "Kuala Lumpur",
         "country": "Malaysia",
         "lat": "2.7455799579619997",
@@ -180,7 +180,7 @@ db = [
     {
         "code": "LWO",
         "description": "A walk along the streets of Lviv is a treat for enthusiasts of modernism. Next to numerous monuments there are many pearls of modernist architecture. Lviv is also famous for its majestic memorials. One of the most popular is Adam Mickiewicz’s statue.",
-        "pf": "0,8",
+        "pf": 0.8,
         "name": "Lvov",
         "country": "Ukraine",
         "lat": "49.8125",
@@ -205,7 +205,7 @@ db = [
     {
         "code": "DEL",
         "description": "A journey through Delhi is like using a time machine. On the one hand, it is a modern city full of spectacular office buildings, sumptuous shopping centers, and centers that excel in futuristic information and telecommunications technologies. On the other hand, Delhi has three monuments, which were inscribed on the UNESCO List. Visit in Delhi is a great opportunity to taste local delicacies: curry, samosa or naan.",
-        "pf": "0,9",
+        "pf": 0.9,
         "name": "Delhi",
         "country": "India",
         "lat": "28.5665",
@@ -230,7 +230,7 @@ db = [
     {
         "code": "LAX",
         "description": "Los Angeles is a city connected with nature, where bustling neighborhoods combine with golden beaches and hills densely woven by plants. It is also a global center of creativity and entertainment. It attracts courageous dreamers and creators to realize their visions on stages and film studios.",
-        "pf": "1,5",
+        "pf": 1.5,
         "name": "Los Angeles",
         "country": "United States",
         "lat": "33.94250107",
