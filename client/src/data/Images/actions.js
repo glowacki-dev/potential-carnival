@@ -1,4 +1,5 @@
 import { ImagesClient } from './client';
+import { sleep } from '../../helpers';
 
 export const image_actions = {
   IMAGE_CLICK: 'IMAGE_CLICK',
@@ -12,7 +13,6 @@ export const fetchImages = sessionID => {
   return async dispatch => {
     dispatch({ type: image_actions.IMAGE_FETCH_REQUEST });
     const images = await new ImagesClient().fetchImages(sessionID);
-
     dispatch({ type: image_actions.IMAGE_FETCH_SUCCESS, images: images });
   };
 };

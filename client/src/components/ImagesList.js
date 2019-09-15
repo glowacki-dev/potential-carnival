@@ -31,7 +31,7 @@ export class PureImagesList extends Component {
     }
 
     return (
-      <GridList cellHeight={440} cols={1}>
+      <GridList cellHeight={440}>
         {this.props.images.map(image => (
           <GridListTile key={image.id} cols={1} rows={1}>
             <ImageCard key={image.id} image={image} {...events} />

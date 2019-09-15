@@ -31,56 +31,55 @@ export function PureProgress({
 
   return (
     <div className={classes.root}>
-      {!max ? (
-        <LinearProgress color="secondary" />
-      ) : (
-        <Grid
-          container
-          justify="center"
-          alignItems="center"
-          className={classes.root}
-        >
-          <Grid item xs={5}>
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        className={classes.root}
+      >
+        <Grid item xs={5}>
+          {!max ? (
+            <LinearProgress color="secondary" />
+          ) : (
             <LinearProgress
               color="secondary"
               variant="determinate"
               value={Math.min((100 * count) / max, 100)}
             />
-          </Grid>
-          <Grid item>
-            <Container maxWidth="sm">
-              {count < max ? (
-                <Tooltip
-                  title={`Please choose at least ${max - count} more ${
-                    max - count > 1 ? 'photos' : 'photo'
-                  }`}
-                >
-                  <div>
-                    <Button variant="contained" color="secondary" disabled>
-                      Choose more photos
-                    </Button>
-                  </div>
-                </Tooltip>
-              ) : (
-                <Tooltip title="You can still select more images if you want">
-                  {/* POST to API, redirect and clean state */}
-                  <Button
-                    onClick={() => {
-                      store.dispatch(saveImages(sessionID, selectedIDS));
-                    }}
-                    variant="contained"
-                    color="secondary"
-                    component={AdapterLink}
-                    to="/summary/"
-                  >
-                    Let's go!
-                  </Button>
-                </Tooltip>
-              )}
-            </Container>
-          </Grid>
+          )}
         </Grid>
-      )}
+        <Grid item>
+          <Container maxWidth="sm">
+            {count < max || !max ? (
+              <Tooltip
+                title={`Please choose at least ${max - count} more ${
+                  max - count > 1 ? 'photos' : 'photo'
+                }`}
+              >
+                <div>
+                  <Button variant="contained" color="secondary" disabled>
+                    Choose more photos
+                  </Button>
+                </div>
+              </Tooltip>
+            ) : (
+              <Tooltip title="You can still select more images if you want">
+                <Button
+                  onClick={() => {
+                    store.dispatch(saveImages(sessionID, selectedIDS));
+                  }}
+                  variant="contained"
+                  color="secondary"
+                  component={AdapterLink}
+                  to="/summary/"
+                >
+                  Let's go!
+                </Button>
+              </Tooltip>
+            )}
+          </Container>
+        </Grid>
+      </Grid>
     </div>
   );
 }

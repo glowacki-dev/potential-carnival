@@ -13,7 +13,7 @@ export default function FullLoader() {
 
   return (
     <div>
-      <CircularProgress className={classes.progress} />
+      <CircularProgress className={classes.progress} size={100} />
     </div>
   );
 }

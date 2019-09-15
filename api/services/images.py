@@ -12,12 +12,9 @@ class ImagesService:
 
     def select_images(self, image_ids):
         choices = set(self.session.get().get('choices'))
-        choices.union(set(image_ids))
+        choices = choices.union(set(image_ids))
 
-        self.session.update({
-            'choices': list(choices)
-        })
-        return
+        self.session.update({'choices': list(choices)})
 
     def generate_images(self):
         viewed = set(self.session.get().get('viewed'))
