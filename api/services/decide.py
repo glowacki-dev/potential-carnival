@@ -1,6 +1,7 @@
 from typing import List, Union
 from collections import Counter
 from copy import deepcopy
+from random import choice
 
 from api.image_map import IMAGE_MAP
 from api.db import db
@@ -37,9 +38,9 @@ def select_best_destination(choices):
         selected_tags.add(tag)
         rank += 1
 
-    avg_pf = avg_price_factor(choices)
-    options.sort(key=lambda x: abs(x['pf'] - avg_pf))
-    best = options[0]
+    # avg_pf = avg_price_factor(choices)
+    # options.sort(key=lambda x: x['pf'] - avg_pf)
+    best = choice(options)
     tags_description = {t: TAG_DESCRIPTION.get(t) for t in selected_tags}
     adds_description = {a: ANC_DESCRIPTION.get(a) for a in best.get('adds', [])}
     return best, tags_description, adds_description

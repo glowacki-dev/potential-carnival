@@ -171,7 +171,7 @@ db = [
         "long": "101.70999908446998",
         "adds": [ANC_SEAT, ANC_BAG],
         "img": f'{settings["base_url"]}/static/img/KUL.jpg',
-        "tags": {FOOD, HOTEL, CULTURE, SEA, LANDSCAPE, HOT},
+        "tags": {FOOD, HOTEL, CULTURE, SEA, HOT},
         "temp": [
             32.1,
             32.9,
@@ -224,7 +224,7 @@ db = [
         "long": "77.103104",
         "img": f'{settings["base_url"]}/static/img/DEL.jpg',
         "adds": [ANC_SEAT, ANC_BAG],
-        "tags": {EXPERIENCE, HOT, HOTEL, FOOD, LANDSCAPE, HOT},
+        "tags": {HOT, HOTEL, FOOD, LANDSCAPE, HOT},
         "temp": [
             20.8,
             23.7,
