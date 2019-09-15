@@ -1,5 +1,5 @@
 from api.tags import *
-
+from api.config import settings
 
 db = [
     {
@@ -10,6 +10,7 @@ db = [
         "country": "Spain",
         "lat": "40.471926",
         "long": "-3.56264",
+        "img": f'{settings["base_url"]}/static/img/MAD.jpg',
         "tags": {EXPERIENCE, CULTURE, NIGHT_LIFE, FOOD, HOTEL, ARCHITECTURE},
         "temp": [
             9.8,
@@ -35,6 +36,7 @@ db = [
         "country": "Croatia",
         "lat": "44.108299",
         "long": "15.3467",
+        "img": f'{settings["base_url"]}/static/img/ZAD.png',
         "tags": {EXPERIENCE, CULTURE, SPORT, HOT, FOOD, ARCHITECTURE},
         "temp": [
             10.2,
@@ -58,8 +60,10 @@ db = [
         "pf": 1.6,
         "name": "Geneva",
         "country": "Switzerland",
+        "adds": [ANC_SKI, ANC_SEAT],
         "lat": "46.23809814453125",
         "long": "6.108950138092041",
+        "img": f'{settings["base_url"]}/static/img/GVA.png',
         "tags": {CITY, HOTEL, LAKE, LANDSCAPE, COLD, SPORT, SKI},
         "temp": [
             3.7,
@@ -85,6 +89,7 @@ db = [
         "country": "Sweden",
         "lat": "59.651901245116996",
         "long": "17.918600082397",
+        "img": f'{settings["base_url"]}/static/img/ARN.jpg',
         "tags": {CITY, LANDSCAPE, SEA, HOTEL, COLD, ARCHITECTURE},
         "temp": [
             -1.0,
@@ -108,8 +113,10 @@ db = [
         "pf": 0.9,
         "name": "Sofia",
         "country": "Bulgaria",
+        "adds": [ANC_SKI],
         "lat": "42.696693420410156",
         "long": "23.411436080932614",
+        "img": f'{settings["base_url"]}/static/img/SOF.png',
         "tags": {HOTEL, CULTURE, ARCHITECTURE, SEA, COLD},
         "temp": [
             2.2,
@@ -135,6 +142,8 @@ db = [
         "country": "China",
         "lat": "40.0801010131836",
         "long": "116.58499908447266",
+        "img": f'{settings["base_url"]}/static/img/PEK.jpg',
+        "adds": [ANC_SEAT, ANC_BAG],
         "tags": {FOOD, CULTURE, ARCHITECTURE, CITY, HOTEL, EXPERIENCE},
         "temp": [
             1.6,
@@ -160,6 +169,8 @@ db = [
         "country": "Malaysia",
         "lat": "2.7455799579619997",
         "long": "101.70999908446998",
+        "adds": [ANC_SEAT, ANC_BAG],
+        "img": f'{settings["base_url"]}/static/img/KUL.jpg',
         "tags": {FOOD, HOTEL, CULTURE, SEA, LANDSCAPE, HOT},
         "temp": [
             32.1,
@@ -185,6 +196,7 @@ db = [
         "country": "Ukraine",
         "lat": "49.8125",
         "long": "23.95610046386719",
+        "img": f'{settings["base_url"]}/static/img/LWO.jpg',
         "tags": {FOOD, ARCHITECTURE, CITY, CULTURE, HOTEL},
         "temp": [
             -2.6,
@@ -210,6 +222,8 @@ db = [
         "country": "India",
         "lat": "28.5665",
         "long": "77.103104",
+        "img": f'{settings["base_url"]}/static/img/DEL.jpg',
+        "adds": [ANC_SEAT, ANC_BAG],
         "tags": {EXPERIENCE, HOT, HOTEL, FOOD, LANDSCAPE, HOT},
         "temp": [
             20.8,
@@ -235,6 +249,8 @@ db = [
         "country": "United States",
         "lat": "33.94250107",
         "long": "-118.40799709999999",
+        "img": f'{settings["base_url"]}/static/img/LAX.jpg',
+        "adds": [ANC_SEAT],
         "tags": {EXPERIENCE, HOT, SEA, CITY, HOTEL, SPORT},
         "temp": [
             20.1,

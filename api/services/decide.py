@@ -4,6 +4,7 @@ from copy import deepcopy
 
 from api.image_map import IMAGE_MAP
 from api.db import db
+from api.tags import TAG_DESCRIPTION
 
 
 def get_tags(image_id: str, as_list: bool = False) -> Union[set, list]:
@@ -23,19 +24,23 @@ def avg_price_factor(choices: List[str]) -> float:
     return sum(get_pf(ch) for ch in choices) / len(choices)
 
 
-def select_best_destination(choices) -> dict:
+def select_best_destination(choices):
     cntr = Counter(sum((get_tags(ch, as_list=True) for ch in choices), []))
     rank = 1
     last_len = 0
     options = deepcopy(db)
+    selected_tags = set()
     while last_len != len(options) > 1:
         last_len = len(options)
-        options = [city for city in options if get_most_common(cntr, rank=rank) in city['tags']] or options
+        tag = get_most_common(cntr, rank=rank)
+        options = [city for city in options if tag in city['tags']] or options
+        selected_tags.add(tag)
         rank += 1
 
     avg_pf = avg_price_factor(choices)
     options.sort(key=lambda x: abs(x['pf'] - avg_pf))
-    return options[0]
+    decision_tags = {TAG_DESCRIPTION.get(t) for t in selected_tags}
+    return options[0], decision_tags
 
 
 class DecisionService:
@@ -44,6 +49,6 @@ class DecisionService:
 
     def make_decision(self):
         choices = set(self.session.get().get('choices'))
-        best = select_best_destination(choices)
+        best, tags = select_best_destination(choices)
         best['tags'] = list(best['tags'])
-        return best
+        return best, tags

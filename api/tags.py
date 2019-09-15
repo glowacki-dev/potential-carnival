@@ -16,3 +16,27 @@ HOTEL = "hotel"
 TENT = "tent"
 SKI = "ski"
 SPORT = "sport"
+
+ANC_SKI = "ski"
+ANC_BAG = "bag"
+ANC_SEAT = "seat"
+
+TAG_DESCRIPTION = {
+    FOOD: "You are a food lover",
+    CULTURE: "Discover inspiring culture.",
+    LANDSCAPE: "Enjoy beautiful landscapes.",
+    ARCHITECTURE: "Enjoy the architecture styles.",
+    MOUNTAIN: "Hike the mountains.",
+    SEA: "Rest at the sea.",
+    LAKE: "Enjoy beautiful lakes.",
+    CITY: "Feel the city.",
+    NIGHT_LIFE: "Be part of the night life.",
+    WILDERNESS: "Enjoy the wilderness.",
+    EXPERIENCE: "Experience the unexpected.",
+    HOT: "Enjoy the war sun.",
+    COLD: "Enjoy snow.",
+    HOTEL: "Rest at best hotels.",
+    TENT: "Take your tent!",
+    SKI: "Ski adventure.",
+    SPORT: "Sport the unexpected.",
+}

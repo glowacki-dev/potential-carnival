@@ -58,5 +58,5 @@ def save_images():
 @session_wrapper()
 def get_decisions():
     decision_service = DecisionService(request.session)
-    decision = decision_service.make_decision()
-    return jsonify({'result': decision})
+    decision, tags = decision_service.make_decision()
+    return jsonify({'result': decision, 'tags': list(tags)})
