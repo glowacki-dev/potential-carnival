@@ -18,7 +18,9 @@ __pycache__/
 # Ignored by the build system
 /setup.cfg
 
+.storybook
 node_modules
 src
 public
 yarn.lock
+package.json

@@ -20,13 +20,13 @@ def hello():
     return f'Hello, World!'
 
 
-@app.route('/sessions', methods=['POST'])
+@app.route('/sessions/', methods=['POST'])
 def create_session():
     session_id = app.services['session'].create_session()
     return jsonify({'session_id': session_id})
 
 
-@app.route('/sessions')
+@app.route('/sessions/')
 @session_wrapper()
 def get_session():
     return jsonify(request.session.get().to_dict())
@@ -56,7 +56,7 @@ def save_images():
 
 @app.route('/decisions/', methods=['GET'])
 @session_wrapper()
-def get_images():
+def get_decisions():
     decision_service = DecisionService(request.session)
     decision = decision_service.make_decision()
     return jsonify({'result': decision})
