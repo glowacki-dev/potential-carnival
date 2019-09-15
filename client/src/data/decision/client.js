@@ -19,6 +19,10 @@ export class DecisionClient extends BaseClient {
 
     const decision_body = await decision.json();
 
+    if (decision.status >= 400) {
+      window.location.href = '/';
+    }
+
     decision = decision_body.result;
     decision.long = parseFloat(decision.long);
     decision.lat = parseFloat(decision.lat);
