@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
+import PropTypes from 'prop-types';
 
 import Map from './Map';
 import store from './../data';
@@ -91,21 +92,18 @@ export class PureDestinationHeader extends Component {
   }
 }
 
-// PureDestinationHeader.propTypes = {
-//   id: PropTypes.string.isRequired,
-//   name: PropTypes.string.isRequired,
-//   description: PropTypes.string.isRequired,
-//   image_url: PropTypes.string.isRequired,
-//   latitude: PropTypes.number.isRequired,
-//   longitude: PropTypes.number.isRequired
-// };
+PureDestinationHeader.propTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image_url: PropTypes.string.isRequired,
+  latitude: PropTypes.number.isRequired,
+  longitude: PropTypes.number.isRequired
+};
 
 export default compose(
   withStyles(styles),
   connect(({ session, decision, images }) => {
     return {
-      id: session.id,
-
       name: session.name,
       description: session.description,
       image_url: session.image_url,
