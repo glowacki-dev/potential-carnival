@@ -52,9 +52,9 @@ export function PureProgress({
           <Container maxWidth="sm">
             {count < max || !max ? (
               <Tooltip
-                title={`Please choose at least ${max - count} more ${
-                  max - count > 1 ? 'photos' : 'photo'
-                }`}
+                title={`Please choose at least ${Math.round(
+                  max - count
+                )} more ${max - count > 1 ? 'photos' : 'photo'}`}
               >
                 <div>
                   <Button variant="contained" color="secondary" disabled>
