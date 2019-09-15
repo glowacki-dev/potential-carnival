@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import ImageCard from './ImageCard';
 import { clickImage, fetchImages } from '../data/Images/actions';
 import store from './../data';
+import FullLoader from './FullLoader';
 
 export class PureImagesList extends Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -26,7 +27,7 @@ export class PureImagesList extends Component {
     const events = { onClickCard: this.onClickCard };
 
     if (this.props.images.length === 0) {
-      return <div className="list-items">empty</div>;
+      return <FullLoader />;
     }
 
     return (

@@ -1,7 +1,19 @@
-import { Component } from 'react';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-class FullLoader extends Component {
-  render() {
-    return '';
+const useStyles = makeStyles(theme => ({
+  progress: {
+    margin: theme.spacing(2)
   }
+}));
+
+export default function FullLoader() {
+  const classes = useStyles();
+
+  return (
+    <div>
+      <CircularProgress className={classes.progress} />
+    </div>
+  );
 }
