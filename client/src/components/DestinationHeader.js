@@ -20,9 +20,8 @@ const styles = {
     height: 287,
     marginBottom: '4em',
     backgroundColor: 'transparent',
-    backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center'
+    backgroundPosition: 'left'
   },
   overlay: {
     position: 'absolute',
