@@ -66,6 +66,21 @@ class PureDestinationHeader extends Component {
             </Grid>
             <Grid item md={5}>
               <div style={{ position: 'relative' }}>
+                <div
+                  style={{
+                    width: 300,
+                    height: 300,
+                    borderRadius: '50%',
+                    background:
+                      'radial-gradient(circle, rgba(169,206,233,0) 0%, rgba(146,207,255,0) 60%, rgba(52,119,190,0.5900735294117647) 100%)',
+                    position: 'absolute',
+                    zIndex: '999',
+                    top: 0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0
+                  }}
+                ></div>
                 <Map
                   latitude={this.props.decision.lat}
                   longitude={this.props.decision.long}
