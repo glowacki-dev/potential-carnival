@@ -11,7 +11,7 @@ db = [
         "lat": "40.471926",
         "long": "-3.56264",
         "img": f'{settings["base_url"]}/static/img/MAD.jpg',
-        "tags": {EXPERIENCE, CULTURE, NIGHT_LIFE, FOOD, HOTEL, ARCHITECTURE},
+        "tags": {EXPERIENCE, SEA, CULTURE, NIGHT_LIFE, HOTEL, ARCHITECTURE},
     },
     {
         "code": "ZAD",
@@ -34,7 +34,7 @@ db = [
         "lat": "46.23809814453125",
         "long": "6.108950138092041",
         "img": f'{settings["base_url"]}/static/img/GVA.png',
-        "tags": {CITY, HOTEL, LAKE, LANDSCAPE, COLD, SPORT, SKI},
+        "tags": {CITY, MOUNTAIN, HOTEL, LAKE, LANDSCAPE, COLD, SPORT, SKI},
     },
     {
         "code": "ARN",
@@ -45,7 +45,7 @@ db = [
         "lat": "59.651901245116996",
         "long": "17.918600082397",
         "img": f'{settings["base_url"]}/static/img/ARN.jpg',
-        "tags": {CITY, LANDSCAPE, SEA, HOTEL, COLD, ARCHITECTURE},
+        "tags": {CITY, LANDSCAPE, LAKE, HOTEL, COLD, ARCHITECTURE},
     },
     {
         "code": "SOF",
@@ -53,7 +53,6 @@ db = [
         "pf": 0.9,
         "name": "Sofia",
         "country": "Bulgaria",
-        "adds": [ANC_SKI],
         "lat": "42.696693420410156",
         "long": "23.411436080932614",
         "img": f'{settings["base_url"]}/static/img/SOF.png',
@@ -69,7 +68,7 @@ db = [
         "long": "116.58499908447266",
         "img": f'{settings["base_url"]}/static/img/PEK.jpg',
         "adds": [ANC_SEAT, ANC_BAG],
-        "tags": {FOOD, CULTURE, ARCHITECTURE, CITY, HOTEL, EXPERIENCE},
+        "tags": {FOOD, CULTURE, ARCHITECTURE, CITY, HOTEL, EXPERIENCE, UNIQUE},
     },
     {
         "code": "KUL",
@@ -81,7 +80,7 @@ db = [
         "long": "101.70999908446998",
         "adds": [ANC_SEAT, ANC_BAG],
         "img": f'{settings["base_url"]}/static/img/KUL.jpg',
-        "tags": {FOOD, HOTEL, CULTURE, SEA, HOT},
+        "tags": {FOOD, NIGHT_LIFE, HOTEL, CULTURE, SEA, HOT, UNIQUE},
     },
     {
         "code": "LWO",
@@ -92,7 +91,7 @@ db = [
         "lat": "49.8125",
         "long": "23.95610046386719",
         "img": f'{settings["base_url"]}/static/img/LWO.jpg',
-        "tags": {FOOD, ARCHITECTURE, CITY, CULTURE, HOTEL},
+        "tags": {ARCHITECTURE, NIGHT_LIFE, SPORT, CITY, HOTEL},
     },
     {
         "code": "DEL",
@@ -104,7 +103,7 @@ db = [
         "long": "77.103104",
         "img": f'{settings["base_url"]}/static/img/DEL.jpg',
         "adds": [ANC_SEAT, ANC_BAG],
-        "tags": {HOT, HOTEL, FOOD, LANDSCAPE},
+        "tags": {HOT, CULTURE, HOTEL, FOOD, UNIQUE},
     },
     {
         "code": "LAX",
@@ -116,7 +115,7 @@ db = [
         "long": "-118.40799709999999",
         "img": f'{settings["base_url"]}/static/img/LAX.jpg',
         "adds": [ANC_SEAT],
-        "tags": {EXPERIENCE, HOT, SEA, CITY, HOTEL, SPORT},
+        "tags": {EXPERIENCE, NIGHT_LIFE, HOT, SEA, CITY, HOTEL, SPORT},
     },
     {
         "code": "DBV",
@@ -127,7 +126,7 @@ db = [
         "lat": "42.38",
         "long": "18.06",
         "img": f'{settings["base_url"]}/static/img/DBV.jpg',
-        "tags": {HOT, SEA, CITY, HOTEL},
+        "tags": {HOT, LANDSCAPE, SEA, CITY, HOTEL},
     },
     {
         "code": "EVN",
@@ -150,7 +149,7 @@ db = [
         "long": "139.41",
         "img": f'{settings["base_url"]}/static/img/NRT.jpg',
         "adds": [ANC_SEAT, ANC_FOOD],
-        "tags": {FOOD, CITY, HOTEL, MOUNTAIN, LANDSCAPE},
+        "tags": {FOOD, CITY, HOTEL, MOUNTAIN, LANDSCAPE, NIGHT_LIFE, UNIQUE},
     },
     {
         "code": "YYZ",
@@ -161,8 +160,8 @@ db = [
         "lat": "43.44",
         "long": "-79.22",
         "img": f'{settings["base_url"]}/static/img/YYZ.jpg',
-        "adds": [ANC_BAG, ANC_SEAT],
-        "tags": {TENT, MOUNTAIN, LANDSCAPE, LAKE},
+        "adds": [ANC_BAG, ANC_SKI],
+        "tags": {TENT, WILDERNESS, COLD, SKI, MOUNTAIN, LANDSCAPE, LAKE},
     },
     {
         "code": "SYD",
@@ -174,7 +173,7 @@ db = [
         "long": "151.20",
         "img": f'{settings["base_url"]}/static/img/SYD.jpg',
         "adds": [ANC_FOOD, ANC_SEAT],
-        "tags": {LANDSCAPE, SEA, NIGHT_LIFE, HOT},
+        "tags": {SEA, WILDERNESS, NIGHT_LIFE, HOT, UNIQUE},
     },
     {
         "code": "SIN",
@@ -186,7 +185,7 @@ db = [
         "long": "103.81",
         "img": f'{settings["base_url"]}/static/img/SIN.jpg',
         "adds": [ANC_BAG, ANC_SEAT],
-        "tags": {FOOD, CITY, HOT, HOTEL, NIGHT_LIFE},
+        "tags": {CITY, HOT, HOTEL, NIGHT_LIFE},
     },
     {
         "code": "ICN",
@@ -198,7 +197,7 @@ db = [
         "long": "126.97",
         "img": f'{settings["base_url"]}/static/img/SEL.jpg',
         "adds": [ANC_BAG, ANC_FOOD],
-        "tags": {CITY, LAKE, EXPERIENCE, CULTURE, FOOD},
+        "tags": {CITY, LAKE, EXPERIENCE, CULTURE, FOOD, UNIQUE},
     },
     {
         "code": "BKK",

@@ -16,6 +16,7 @@ HOTEL = "hotel"
 TENT = "tent"
 SKI = "ski"
 SPORT = "sport"
+UNIQUE = "unique"
 
 ANC_SKI = "ski"
 ANC_BAG = "bag"
@@ -40,6 +41,7 @@ TAG_DESCRIPTION = {
     TENT: "Take your tent!",
     SKI: "Ski adventure.",
     SPORT: "Sport the unexpected.",
+    UNIQUE: "See something different"
 }
 
 ANC_DESCRIPTION = {
